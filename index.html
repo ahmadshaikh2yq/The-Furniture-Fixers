@@ -2,1070 +2,2031 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO Meta Tags -->
-  <title>The Furniture Fixers | Carpenter & Interior Specialists in Maharashtra</title>
-  <meta name="description" content="Premium carpentry, furniture repair, and interior design services in Mumbai, Thane, Pune and across Maharashtra. Expert craftsmen, AMC contracts, and bespoke interiors." />
-  <meta name="keywords" content="carpenter Mumbai, furniture repair Thane, interior design Pune, carpenter Maharashtra, furniture fixers, wood work Mumbai, AMC carpenter, modular kitchen Maharashtra" />
-  <meta name="author" content="The Furniture Fixers" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.thefurniturefixers.in/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="The Furniture Fixers | Carpenter & Interior Specialists" />
-  <meta property="og:description" content="Premium carpentry and interior design across Maharashtra. Trusted by homes and corporates." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.thefurniturefixers.in/" />
-  <meta property="og:locale" content="en_IN" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "The Furniture Fixers",
-    "description": "Carpenter and Interior Specialists in Maharashtra",
-    "telephone": "+918928757480",
-    "email": "ahmadshaikh2yq@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "Maharashtra",
-      "addressCountry": "IN"
-    },
-    "areaServed": ["Mumbai", "Thane", "Pune", "Navi Mumbai", "Maharashtra"]
-  }
-  </script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            wood: {
-              50:  '#fdf8f3',
-              100: '#f5e9d9',
-              200: '#e8ccaa',
-              300: '#d4a76a',
-              400: '#c4894a',
-              500: '#a0692e',
-              600: '#7d5124',
-              700: '#5c3a18',
-              800: '#3d260f',
-              900: '#231508',
-            },
-            charcoal: {
-              50:  '#f4f4f4',
-              100: '#e0e0e0',
-              200: '#b8b8b8',
-              300: '#888888',
-              400: '#5c5c5c',
-              500: '#3a3a3a',
-              600: '#2e2e2e',
-              700: '#222222',
-              800: '#181818',
-              900: '#0f0f0f',
-            },
-            gold: '#c9963a',
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            body: ['Barlow', 'sans-serif'],
-            condensed: ['"Barlow Condensed"', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Furniture Fixers – Carpenter & Interior Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
     :root {
-      --wood-dark: #3d260f;
-      --wood-mid:  #a0692e;
-      --wood-light:#d4a76a;
-      --charcoal:  #1a1a1a;
-      --charcoal-mid: #2e2e2e;
-      --gold: #c9963a;
-      --cream: #fdf8f3;
+      --white:       #FFFFFF;
+      --off-white:   #F8F5F0;
+      --gold:        #C9A84C;
+      --gold-light:  #E5C97A;
+      --gold-dark:   #9E7A2A;
+      --blue:        #1A3A5C;
+      --blue-mid:    #2A5480;
+      --blue-light:  #EAF0F7;
+      --brown:       #5C3317;
+      --brown-mid:   #8B5E3C;
+      --brown-light: #F5EEE6;
+      --text-dark:   #1C1C1C;
+      --text-muted:  #6B5C4A;
+      --border:      rgba(201,168,76,0.22);
+      --border-soft: rgba(26,58,92,0.08);
+      --shadow:      0 8px 32px rgba(26,58,92,0.10);
+      --shadow-lg:   0 20px 60px rgba(26,58,92,0.18);
+      --radius:      4px;
+      --transition:  0.38s cubic-bezier(0.4,0,0.2,1);
     }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Barlow', sans-serif;
-      background-color: var(--charcoal);
-      color: var(--cream);
+      font-family: 'Lato', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
       overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
 
-    /* ─── Grain overlay ─── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.35;
-    }
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--off-white); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-dark)); border-radius: 3px; }
 
-    /* ─── Nav ─── */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 500;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+    /* ============================================================
+       SVG ICON HELPER
+    ============================================================ */
+    .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon svg { display: block; }
+
+    /* ============================================================
+       SCROLL REVEAL SYSTEM
+    ============================================================ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.72s cubic-bezier(0.4,0,0.2,1), transform 0.72s cubic-bezier(0.4,0,0.2,1);
     }
-    #navbar.scrolled {
-      background: rgba(26,26,26,0.97);
-      box-shadow: 0 2px 24px rgba(0,0,0,0.6);
-      border-bottom: 1px solid rgba(201,150,58,0.2);
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    [data-reveal-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal-delay="2"] { transition-delay: 0.2s; }
+    [data-reveal-delay="3"] { transition-delay: 0.3s; }
+    [data-reveal-delay="4"] { transition-delay: 0.4s; }
+    [data-reveal-delay="5"] { transition-delay: 0.5s; }
+    [data-reveal-delay="6"] { transition-delay: 0.6s; }
+    [data-reveal-left] {
+      opacity: 0; transform: translateX(-32px);
+      transition: opacity 0.72s cubic-bezier(0.4,0,0.2,1), transform 0.72s cubic-bezier(0.4,0,0.2,1);
     }
-    .nav-link {
+    [data-reveal-left].revealed { opacity: 1; transform: translateX(0); }
+    [data-reveal-right] {
+      opacity: 0; transform: translateX(32px);
+      transition: opacity 0.72s cubic-bezier(0.4,0,0.2,1), transform 0.72s cubic-bezier(0.4,0,0.2,1);
+    }
+    [data-reveal-right].revealed { opacity: 1; transform: translateX(0); }
+
+    /* ============================================================
+       TOPBAR
+    ============================================================ */
+    .topbar {
+      background: var(--blue);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .topbar-inner {
+      max-width: 1200px; margin: auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 6px;
+    }
+    .topbar a { color: var(--gold-light); transition: color var(--transition); }
+    .topbar a:hover { color: var(--white); }
+    .topbar-left, .topbar-right { display: flex; gap: 20px; align-items: center; }
+    .topbar-item { display: flex; align-items: center; gap: 6px; }
+    .topbar-item svg { opacity: 0.7; }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    nav {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 1000;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      box-shadow: 0 2px 20px rgba(26,58,92,0.07);
+      transition: box-shadow var(--transition);
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(26,58,92,0.14); }
+    .nav-inner {
+      max-width: 1200px; margin: auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 74px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 13px; cursor: pointer; }
+    .logo-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 14px rgba(201,168,76,0.2);
+      transition: transform var(--transition);
+    }
+    .logo-wrap:hover .logo-icon { transform: rotate(8deg) scale(1.04); }
+    .logo-icon svg { color: var(--gold-light); }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-main {
+      font-family: 'Cinzel', serif;
+      font-size: 1.12rem; font-weight: 600;
+      color: var(--blue); letter-spacing: 0.06em;
+    }
+    .logo-sub {
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      color: var(--gold-dark); text-transform: uppercase; font-weight: 700;
+    }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 8px 14px; border-radius: var(--radius);
+      color: var(--blue); transition: all var(--transition);
       position: relative;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      color: rgba(253,248,243,0.75);
-      transition: color 0.3s;
     }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: var(--gold);
-      transition: width 0.3s ease;
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 2px; left: 50%; right: 50%;
+      height: 2px; background: var(--gold); border-radius: 1px;
+      transition: all var(--transition);
     }
-    .nav-link:hover { color: var(--gold); }
-    .nav-link:hover::after { width: 100%; }
+    .nav-links a:hover::after, .nav-links a.active::after { left: 14px; right: 14px; }
+    .nav-links a.active { color: var(--gold-dark); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
+      color: var(--white) !important;
+      border-radius: var(--radius) !important;
+      padding: 9px 22px !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3) !important;
+      letter-spacing: 0.08em !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--gold-dark) 0%, #7a5c1e 100%) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 22px rgba(201,168,76,0.4) !important;
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; border-radius: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--blue); border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: var(--white); border-top: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 14px 24px; font-size: 0.85rem;
+      font-weight: 700; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--blue);
+      border-bottom: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .mobile-menu a:hover { background: var(--blue-light); color: var(--gold-dark); padding-left: 32px; }
 
-    /* ─── Hero ─── */
-    #hero {
-      height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
+    /* ============================================================
+       PAGE SYSTEM
+    ============================================================ */
+    .page { display: none; }
+    .page.active { display: block; animation: pageEnter 0.5s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       SECTION UTILITIES
+    ============================================================ */
+    .section { padding: 90px 24px; max-width: 1200px; margin: auto; }
+    .section-sm { padding: 55px 24px; max-width: 1200px; margin: auto; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--blue); font-weight: 600; line-height: 1.15;
+    }
+    .section-title span { color: var(--gold-dark); }
+    .section-sub {
+      font-size: 0.72rem; letter-spacing: 0.26em;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 700; margin-bottom: 10px; display: block;
+    }
+    .divider {
+      display: flex; align-items: center; gap: 12px; margin: 14px 0 36px;
+    }
+    .divider-line { flex: 1; height: 1px; background: var(--border); }
+    .divider-diamond {
+      width: 8px; height: 8px; background: var(--gold);
+      transform: rotate(45deg); flex-shrink: 0;
+    }
+    .text-center { text-align: center; }
+    .text-center .divider { justify-content: center; }
+    .text-center .divider-line { flex: 0 0 60px; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 28px; border-radius: var(--radius);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; border: none; transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-100%) skewX(-12deg);
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn:hover::before { transform: translateX(120%) skewX(-12deg); }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.28);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.42); }
+    .btn-outline {
+      background: transparent; color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+    .btn-outline:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
+    .btn-white { background: var(--white); color: var(--blue); }
+    .btn-white:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+
+    /* ============================================================
+       HOME — HERO
+    ============================================================ */
+    .hero {
+      position: relative; min-height: 92vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #0D2238 0%, #1A3A5C 50%, #3D1F0D 100%);
       overflow: hidden;
     }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(160,105,46,0.18) 0%, transparent 65%),
-        linear-gradient(160deg, #0f0f0f 0%, #1a1008 40%, #0f0f0f 100%);
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.5; pointer-events: none;
     }
+    .hero-pattern {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 80%, rgba(26,58,92,0.3) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 48px, rgba(255,255,255,0.012) 48px, rgba(255,255,255,0.012) 49px);
+    }
+    .hero-frame {
+      position: absolute; inset: 28px; z-index: 1;
+      border: 1px solid rgba(201,168,76,0.18);
+      pointer-events: none;
+      animation: framePulse 4s ease-in-out infinite;
+    }
+    @keyframes framePulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+    .hero-frame::before, .hero-frame::after {
+      content: ''; position: absolute;
+      width: 44px; height: 44px;
+      border-color: var(--gold); border-style: solid;
+    }
+    .hero-frame::before { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+    .hero-frame::after  { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: auto; padding: 70px 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light); font-size: 0.68rem;
+      letter-spacing: 0.24em; text-transform: uppercase; font-weight: 700;
+      padding: 7px 18px; border-radius: 2px; margin-bottom: 26px;
+      animation: heroFadeUp 0.8s 0.1s both;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+      color: var(--white); font-weight: 600; line-height: 1.06;
+      margin-bottom: 22px;
+      animation: heroFadeUp 0.8s 0.25s both;
+    }
+    .hero-title em { color: var(--gold-light); font-style: italic; }
+    .hero-desc {
+      font-size: 1rem; color: rgba(255,255,255,0.68);
+      line-height: 1.85; margin-bottom: 38px; max-width: 480px;
+      animation: heroFadeUp 0.8s 0.4s both;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: heroFadeUp 0.8s 0.55s both;
+    }
+    .hero-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-top: 40px;
+      animation: heroFadeUp 0.8s 0.7s both;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 18px 22px; border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+      transition: all var(--transition);
+    }
+    .stat-card:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.35); transform: translateY(-2px); }
+    .stat-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2.1rem; color: var(--gold-light);
+      font-weight: 600; line-height: 1;
+    }
+    .stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.48); letter-spacing: 0.1em; margin-top: 5px; text-transform: uppercase; }
+    .hero-visual {
+      position: relative;
+      animation: heroFadeRight 0.9s 0.35s both;
+    }
+    @keyframes heroFadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes heroFadeRight { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
+    .hero-img-frame {
+      position: relative; padding: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.28);
+    }
+    .hero-img-frame img {
+      width: 100%; height: 420px; object-fit: cover;
+      filter: brightness(0.88) contrast(1.04);
+    }
+    .hero-img-badge {
+      position: absolute; bottom: -16px; left: -16px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--white);
+      padding: 14px 22px; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero-img-badge span { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; display: block; line-height: 1; }
+    .scroll-hint {
+      position: absolute; bottom: 28px; left: 50%;
+      transform: translateX(-50%); z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      color: rgba(255,255,255,0.38); font-size: 0.6rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      animation: scrollHintFade 2s 1.5s both;
+    }
+    @keyframes scrollHintFade { from{opacity:0} to{opacity:1} }
+    .scroll-arrow { animation: bounce 1.8s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(7px); } }
 
-    /* Wood grain SVG lines */
-    .hero-woodgrain {
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(
-        172deg,
-        transparent 0px,
-        transparent 28px,
-        rgba(160,105,46,0.04) 28px,
-        rgba(160,105,46,0.04) 29px
+    /* ============================================================
+       HOME — FEATURES STRIP
+    ============================================================ */
+    .features-strip { background: var(--blue); }
+    .features-strip-inner {
+      max-width: 1200px; margin: auto; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .feature-item {
+      padding: 30px 22px; display: flex; align-items: center; gap: 16px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .feature-item::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0); transition: transform var(--transition);
+    }
+    .feature-item:hover::after { transform: scaleX(1); }
+    .feature-item:last-child { border-right: none; }
+    .feature-item:hover { background: rgba(255,255,255,0.04); }
+    .feature-icon-wrap {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: var(--gold-light); transition: all var(--transition);
+    }
+    .feature-item:hover .feature-icon-wrap { background: rgba(201,168,76,0.25); transform: scale(1.08); }
+    .feature-text strong { display: block; color: var(--gold-light); font-size: 0.83rem; font-weight: 700; }
+    .feature-text span { color: rgba(255,255,255,0.45); font-size: 0.72rem; }
+
+    /* ============================================================
+       HOME — ABOUT TEASER
+    ============================================================ */
+    .about-teaser {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+    }
+    .about-img-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 10px;
+    }
+    .about-img-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: var(--radius); transition: transform 0.5s ease;
+    }
+    .about-img-grid img:hover { transform: scale(1.02); }
+    .about-img-grid img:first-child {
+      grid-column: 1 / -1; height: 240px;
+    }
+    .about-text p { color: var(--text-muted); line-height: 1.88; margin-bottom: 16px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
+    .tag {
+      background: var(--blue-light); color: var(--blue);
+      padding: 5px 14px; border-radius: 2px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em;
+      border: 1px solid transparent; transition: all var(--transition);
+    }
+    .tag:hover { border-color: var(--blue); }
+
+    /* ============================================================
+       HOME — SERVICE CARDS
+    ============================================================ */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+    }
+    .service-card {
+      background: var(--white); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: all var(--transition); cursor: pointer;
+      border: 1px solid var(--border-soft);
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.2); }
+    .service-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s ease; }
+    .service-card:hover .service-card-img { transform: scale(1.04); }
+    .service-card-body { padding: 24px; }
+    .service-card-icon-wrap {
+      width: 42px; height: 42px; border-radius: 8px;
+      background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+      color: var(--blue); margin-bottom: 14px;
+      transition: all var(--transition);
+    }
+    .service-card:hover .service-card-icon-wrap { background: var(--gold); color: var(--white); }
+    .service-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; color: var(--blue); font-weight: 600; margin-bottom: 8px;
+    }
+    .service-card-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.75; }
+    .service-card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-dark); transition: gap var(--transition);
+    }
+    .service-card:hover .service-card-link { gap: 12px; }
+
+    /* ============================================================
+       HOME — WHY US
+    ============================================================ */
+    .why-section { background: linear-gradient(160deg, #0D2238 0%, var(--blue) 60%, #1a3a4d 100%); position: relative; overflow: hidden; }
+    .why-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(135deg, transparent, transparent 60px, rgba(201,168,76,0.02) 60px, rgba(201,168,76,0.02) 61px);
+    }
+    .why-section .section { padding-top: 90px; padding-bottom: 90px; position: relative; z-index: 1; }
+    .why-section .section-title { color: var(--white); }
+    .why-section .section-sub { color: var(--gold-light); }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 12px; }
+    .why-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 30px 24px; border-radius: var(--radius);
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0); transition: transform 0.5s ease;
+    }
+    .why-card:hover::before { transform: scaleX(1); }
+    .why-card:hover { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+    .why-num {
+      font-family: 'Cinzel', serif; font-size: 2.8rem;
+      color: rgba(201,168,76,0.18); font-weight: 600; line-height: 1;
+    }
+    .why-icon-wrap {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light); margin: 8px 0 14px;
+      transition: all var(--transition);
+    }
+    .why-card:hover .why-icon-wrap { background: rgba(201,168,76,0.2); transform: scale(1.08); }
+    .why-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--gold-light); font-weight: 600; margin-bottom: 8px; }
+    .why-desc { font-size: 0.81rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
+
+    /* ============================================================
+       HOME — PROCESS
+    ============================================================ */
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      position: relative; margin-top: 52px;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 27px; left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    }
+    .process-step { text-align: center; padding: 0 16px; position: relative; }
+    .step-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; position: relative; z-index: 2;
+      font-family: 'Cinzel', serif; font-size: 1.05rem;
+      color: var(--gold-dark); font-weight: 600;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.22);
+      transition: all var(--transition);
+    }
+    .process-step:hover .step-circle { background: var(--gold); color: var(--white); transform: scale(1.1); }
+    .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--blue); font-weight: 600; margin-bottom: 8px; }
+    .step-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ============================================================
+       HOME — TESTIMONIALS
+    ============================================================ */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: var(--white); padding: 30px;
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      border-top: 3px solid var(--gold); position: relative;
+      transition: all var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .testi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem; color: var(--gold-light); line-height: 0.8;
+      position: absolute; top: 18px; right: 22px; opacity: 0.3;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-text { font-size: 0.87rem; color: var(--text-muted); line-height: 1.85; font-style: italic; margin-bottom: 20px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif; font-weight: 600;
+      color: var(--gold-light); font-size: 0.88rem; flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 0.85rem; color: var(--blue); }
+    .testi-loc { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* ============================================================
+       HOME — CTA BANNER
+    ============================================================ */
+    .cta-banner {
+      background: linear-gradient(135deg, #3D1F0D 0%, var(--blue) 60%, #0D2238 100%);
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 24px,
+        rgba(201,168,76,0.03) 24px, rgba(201,168,76,0.03) 25px
       );
     }
+    .cta-inner {
+      max-width: 1200px; margin: auto; padding: 80px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap; position: relative; z-index: 1;
+    }
+    .cta-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      color: var(--white); font-weight: 600; margin-bottom: 12px;
+    }
+    .cta-text p { color: rgba(255,255,255,0.6); max-width: 480px; line-height: 1.7; }
 
-    .hero-tagline-bar {
-      display: inline-block;
-      width: 48px; height: 2px;
-      background: var(--gold);
-      vertical-align: middle;
-      margin-right: 12px;
+    /* ============================================================
+       SERVICES PAGE
+    ============================================================ */
+    .page-hero {
+      background: linear-gradient(140deg, #0D2238 0%, var(--blue) 70%, #1d3a52 100%);
+      padding: 90px 24px 70px; text-align: center; position: relative; overflow: hidden;
     }
+    .page-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+    }
+    .page-hero-pattern {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.05) 0%, transparent 50%);
+    }
+    .page-hero > * { position: relative; z-index: 1; }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem); color: var(--white);
+      font-weight: 600; margin-top: 8px;
+    }
+    .page-hero p { color: rgba(255,255,255,0.56); margin-top: 14px; max-width: 520px; margin-inline: auto; line-height: 1.7; }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      justify-content: center; margin-bottom: 16px;
+      font-size: 0.68rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .breadcrumb svg { color: rgba(201,168,76,0.5); }
+    .services-full-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .svc-card {
+      background: var(--white); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+      border: 1px solid var(--border-soft); transition: all var(--transition);
+    }
+    .svc-card:hover { transform: translateY(-6px); border-color: rgba(201,168,76,0.2); box-shadow: var(--shadow-lg); }
+    .svc-card-header {
+      background: linear-gradient(140deg, var(--blue) 0%, var(--blue-mid) 100%);
+      padding: 30px; position: relative; overflow: hidden;
+    }
+    .svc-card-header::after {
+      content: attr(data-num);
+      position: absolute; right: 14px; bottom: -12px;
+      font-family: 'Cinzel', serif; font-size: 4.5rem;
+      color: rgba(255,255,255,0.06); font-weight: 600; line-height: 1;
+    }
+    .svc-icon-wrap {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.35);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-light); margin-bottom: 12px;
+      transition: all var(--transition);
+    }
+    .svc-card:hover .svc-icon-wrap { background: rgba(201,168,76,0.25); transform: scale(1.08); }
+    .svc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--white); font-weight: 600; }
+    .svc-card-body { padding: 24px; }
+    .svc-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.78; margin-bottom: 18px; }
+    .svc-list { display: flex; flex-direction: column; gap: 8px; }
+    .svc-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.8rem; color: var(--text-dark);
+    }
+    .svc-list li::before {
+      content: ''; display: block; width: 6px; height: 6px;
+      background: var(--gold); transform: rotate(45deg); flex-shrink: 0;
+    }
+    .pricing-table {
+      background: var(--brown-light); border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden; margin-top: 56px;
+      box-shadow: var(--shadow);
+    }
+    .pricing-table table { width: 100%; border-collapse: collapse; }
+    .pricing-table th {
+      background: var(--blue); color: var(--gold-light);
+      padding: 15px 22px; text-align: left;
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .pricing-table td { padding: 13px 22px; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+    .pricing-table tr:last-child td { border-bottom: none; }
+    .pricing-table tr:nth-child(even) td { background: rgba(201,168,76,0.04); }
+    .pricing-table tbody tr { transition: background var(--transition); }
+    .pricing-table tbody tr:hover td { background: rgba(201,168,76,0.08); }
+    .price-tag { color: var(--gold-dark); font-weight: 700; }
 
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-weight: 900;
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      color: var(--cream);
+    /* ============================================================
+       ABOUT PAGE
+    ============================================================ */
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .team-card {
+      background: var(--white); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); text-align: center;
+      border: 1px solid var(--border-soft); transition: all var(--transition);
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: rgba(201,168,76,0.2); }
+    .team-card-img-wrap {
+      background: linear-gradient(135deg, var(--blue-light), var(--brown-light));
+      padding: 36px; display: flex; justify-content: center;
     }
+    .team-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+      border: 3px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif; font-size: 1.7rem;
+      color: var(--gold-light); font-weight: 600;
+      box-shadow: 0 8px 24px rgba(26,58,92,0.2);
+    }
+    .team-body { padding: 22px; }
+    .team-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--blue); font-weight: 600; }
+    .team-role { font-size: 0.7rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.12em; margin: 5px 0 12px; }
+    .team-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.72; }
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .value-card {
+      background: var(--white); padding: 30px;
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      border-left: 4px solid var(--gold); transition: all var(--transition);
+    }
+    .value-card:hover { border-left-color: var(--blue); transform: translateX(4px); }
+    .value-icon-wrap {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: var(--blue-light); display: flex; align-items: center; justify-content: center;
+      color: var(--blue); margin-bottom: 14px; transition: all var(--transition);
+    }
+    .value-card:hover .value-icon-wrap { background: var(--blue); color: var(--white); }
+    .value-title { font-family: 'Cormorant Garamond', serif; font-size: 1.22rem; color: var(--blue); font-weight: 600; margin-bottom: 10px; }
+    .value-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.78; }
+    .milestones { display: flex; flex-direction: column; gap: 0; }
+    .milestone {
+      display: flex; gap: 22px; align-items: flex-start;
+      padding: 26px 0; border-bottom: 1px solid var(--border);
+      transition: padding-left var(--transition);
+    }
+    .milestone:hover { padding-left: 6px; }
+    .milestone:last-child { border-bottom: none; }
+    .milestone-year {
+      font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-dark);
+      font-weight: 600; min-width: 70px; padding-top: 2px;
+    }
+    .milestone-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 6px;
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.18);
+    }
+    .milestone-text strong { display: block; color: var(--blue); font-weight: 700; margin-bottom: 4px; }
+    .milestone-text span { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
 
-    .hero-subtitle {
-      font-family: 'Barlow', sans-serif;
-      font-weight: 300;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(253,248,243,0.65);
-      letter-spacing: 0.03em;
-      line-height: 1.7;
+    /* ============================================================
+       GALLERY PAGE
+    ============================================================ */
+    .gallery-filters {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 40px; justify-content: center;
     }
+    .filter-btn {
+      padding: 8px 22px; border-radius: 2px;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--text-muted); font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--white); border-color: var(--gold);
+      box-shadow: 0 4px 14px rgba(201,168,76,0.3);
+    }
+    .gallery-grid { columns: 3; gap: 16px; }
+    .gallery-item {
+      break-inside: avoid; margin-bottom: 16px;
+      position: relative; overflow: hidden;
+      border-radius: var(--radius); cursor: pointer;
+    }
+    .gallery-item img { width: 100%; display: block; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,34,56,0.88) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.35s ease;
+      display: flex; align-items: flex-end; padding: 18px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { color: var(--white); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--charcoal);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 14px 32px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      text-decoration: none;
+    /* ============================================================
+       CONTACT PAGE
+    ============================================================ */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 52px; align-items: start; }
+    .contact-info-cards { display: flex; flex-direction: column; gap: 14px; }
+    .contact-info-card {
+      background: var(--white); padding: 20px 22px;
+      border-radius: var(--radius); box-shadow: var(--shadow);
+      border: 1px solid var(--border-soft); display: flex; align-items: center; gap: 16px;
+      transition: all var(--transition);
     }
-    .btn-primary:hover {
-      background: var(--wood-light);
-      transform: translateY(-2px);
+    .contact-info-card:hover { border-color: var(--gold); transform: translateX(4px); box-shadow: var(--shadow-lg); }
+    .ci-icon {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--blue-light); display: flex; align-items: center;
+      justify-content: center; color: var(--blue); flex-shrink: 0;
+      transition: all var(--transition);
     }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--cream);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 13px 30px;
-      border: 1px solid rgba(253,248,243,0.35);
-      cursor: pointer;
-      transition: border-color 0.3s, color 0.3s, transform 0.2s;
-      text-decoration: none;
+    .contact-info-card:hover .ci-icon { background: var(--gold); color: var(--white); }
+    .ci-title { font-weight: 700; font-size: 0.78rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--blue); margin-bottom: 4px; }
+    .ci-val { font-size: 0.86rem; color: var(--text-muted); }
+    .ci-val a { color: var(--gold-dark); transition: color var(--transition); }
+    .ci-val a:hover { color: var(--gold); }
+    .social-links { display: flex; gap: 10px; margin-top: 22px; }
+    .social-btn {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--blue); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition); cursor: pointer;
+      border: 1px solid transparent;
     }
-    .btn-outline:hover {
+    .social-btn:hover { background: transparent; color: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+    .contact-form-wrap {
+      background: var(--white); padding: 38px;
+      border-radius: var(--radius); box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-soft);
+    }
+    .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--blue); font-weight: 600; margin-bottom: 6px; }
+    .form-sub { font-size: 0.81rem; color: var(--text-muted); margin-bottom: 26px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid rgba(201,168,76,0.2); border-radius: var(--radius);
+      font-family: 'Lato', sans-serif; font-size: 0.86rem;
+      color: var(--text-dark); background: var(--off-white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none; appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
       border-color: var(--gold);
-      color: var(--gold);
-      transform: translateY(-2px);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 115px; }
+    .map-wrap {
+      margin-top: 48px; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+    }
+    .map-header {
+      background: var(--blue); padding: 14px 22px;
+      display: flex; align-items: center; gap: 10px;
+      color: var(--gold-light);
+    }
+    .map-header span { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.07em; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background: #080E15; border-top: 2px solid var(--gold); }
+    .footer-top {
+      max-width: 1200px; margin: auto; padding: 70px 24px 44px;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 44px;
+    }
+    .footer-brand p { color: rgba(255,255,255,0.38); font-size: 0.81rem; line-height: 1.85; margin-top: 16px; }
+    .footer-col h4 {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 18px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.38); font-size: 0.82rem;
+      transition: all var(--transition); display: flex; align-items: center; gap: 8px;
+    }
+    .footer-col ul li a:hover { color: var(--gold-light); padding-left: 4px; }
+    .footer-col ul li a .icon { color: rgba(201,168,76,0.5); flex-shrink: 0; }
+    .footer-col ul li a:hover .icon { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 18px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: auto; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.25); font-size: 0.73rem; }
+    .footer-badge {
+      color: var(--gold); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 6px;
     }
 
-    /* Floating badge */
-    .hero-badge {
-      position: absolute;
-      right: 8vw;
-      bottom: 10vh;
-      width: 130px; height: 130px;
-      border: 1px solid rgba(201,150,58,0.4);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: rgba(26,26,26,0.7);
-      backdrop-filter: blur(8px);
+    /* ============================================================
+       FLOATING BUTTONS
+    ============================================================ */
+    .float-buttons {
+      position: fixed; bottom: 24px; right: 22px;
+      display: flex; flex-direction: column; gap: 12px; z-index: 9999;
     }
-    .hero-badge-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+      transition: all var(--transition); text-decoration: none;
     }
-    .hero-badge-text {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(253,248,243,0.6);
-      margin-top: 4px;
-    }
-
-    /* Hero scroll line */
-    .hero-scroll-line {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px; height: 80px;
-      background: linear-gradient(to bottom, rgba(201,150,58,0.6), transparent);
-    }
-
-    /* ─── Section headings ─── */
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 500;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--cream);
-    }
-    .section-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    /* ─── Service pillars ─── */
-    .service-card {
-      position: relative;
-      background: var(--charcoal-mid);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 2.5rem 2rem 2rem;
-      overflow: hidden;
-      transition: border-color 0.4s, transform 0.4s;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .service-card:hover {
-      border-color: rgba(201,150,58,0.3);
-      transform: translateY(-6px);
-    }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon {
-      width: 52px; height: 52px;
-      background: rgba(201,150,58,0.12);
-      border: 1px solid rgba(201,150,58,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .service-number {
-      position: absolute;
-      top: 1.5rem; right: 1.5rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: rgba(201,150,58,0.07);
-      line-height: 1;
-    }
-
-    .service-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--cream);
-      margin-bottom: 0.75rem;
-    }
-
-    .service-desc {
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: rgba(253,248,243,0.55);
-      line-height: 1.75;
-    }
-
-    /* ─── Stats bar ─── */
-    .stat-item {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      border-right: 1px solid rgba(255,255,255,0.07);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .stat-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(253,248,243,0.45);
-      margin-top: 6px;
-    }
-
-    /* ─── WhatsApp float ─── */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      width: 56px; height: 56px;
-      background: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 900;
+    .float-wa {
+      background: #25D366; color: white;
       box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-decoration: none;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1) translateY(-3px);
-      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+    .float-call {
+      background: var(--blue); color: white;
+      box-shadow: 0 4px 20px rgba(26,58,92,0.4);
+      border: 1px solid rgba(201,168,76,0.3);
     }
+    .float-btn:hover { transform: scale(1.12) translateY(-2px); }
+    .float-wa:hover { box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+    .float-call:hover { box-shadow: 0 8px 28px rgba(26,58,92,0.55); }
+    .float-label {
+      position: absolute; right: 62px;
+      background: rgba(8,14,21,0.88); color: white;
+      padding: 5px 12px; border-radius: 4px;
+      font-size: 0.68rem; white-space: nowrap; font-weight: 700; letter-spacing: 0.06em;
+      opacity: 0; pointer-events: none; transform: translateX(6px);
+      transition: all var(--transition);
+    }
+    .float-btn-wrap { position: relative; display: flex; align-items: center; }
+    .float-btn-wrap:hover .float-label { opacity: 1; transform: translateX(0); }
 
-    /* ─── Footer ─── */
-    footer {
-      background: #0d0d0d;
-      border-top: 1px solid rgba(201,150,58,0.18);
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .services-grid, .services-full-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .features-strip-inner { grid-template-columns: repeat(2, 1fr); }
+      .feature-item:nth-child(2) { border-right: none; }
+      .gallery-grid { columns: 2; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--cream);
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { grid-template-columns: 1fr; padding: 60px 24px; }
+      .hero-visual { display: none; }
+      .about-teaser { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid, .services-full-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .gallery-grid { columns: 1; }
+      .why-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .features-strip-inner { grid-template-columns: 1fr 1fr; }
+      .topbar-left, .topbar-right { gap: 12px; }
     }
-    .footer-logo span { color: var(--gold); }
-
-    .footer-link {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(253,248,243,0.45);
-      text-decoration: none;
-      transition: color 0.3s;
-      display: block;
-      margin-bottom: 8px;
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; align-items: flex-start; }
     }
-    .footer-link:hover { color: var(--gold); }
-
-    /* ─── Divider gold ─── */
-    .gold-divider {
-      width: 64px; height: 2px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin: 1rem 0 1.5rem;
-    }
-
-    /* ─── Mobile menu ─── */
-    #mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10,10,10,0.98);
-      z-index: 400;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-    }
-    #mobile-menu.open { display: flex; }
-    .mobile-nav-link {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--cream);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .mobile-nav-link:hover { color: var(--gold); }
-
-    /* ─── Marquee ─── */
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee 22s linear infinite;
-      white-space: nowrap;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marquee {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 500;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(201,150,58,0.55);
-    }
-    .marquee-dot {
-      display: inline-block;
-      width: 4px; height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      vertical-align: middle;
-      margin: 0 1rem;
-      opacity: 0.4;
-    }
-
-    /* Reveal classes */
-    .reveal { opacity: 0; }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     NAV
-══════════════════════════════════════ -->
-<nav id="navbar" class="px-6 md:px-12 py-5">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
-
-    <!-- Logo -->
-    <a href="index.html" class="footer-logo text-xl" style="font-family:'Playfair Display',serif;font-weight:900;color:var(--cream);text-decoration:none;">
-      The <span>Furniture</span> Fixers
-    </a>
-
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex items-center gap-8">
-      <a href="index.html"     class="nav-link">Home</a>
-      <a href="services.html"  class="nav-link">Services</a>
-      <a href="interior.html"  class="nav-link">Interiors</a>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="corporate.html" class="nav-link">AMC</a>
-      <a href="about.html"     class="nav-link">About</a>
-      <a href="locations.html" class="nav-link">Locations</a>
-      <a href="contact.html"   class="nav-link">Contact</a>
-      <a href="https://wa.me/918928757480?text=Hi%2C%20I%20need%20carpentry%20services"
-         target="_blank" rel="noopener"
-         class="btn-primary text-xs py-2.5 px-5">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Get Quote
-      </a>
-    </div>
-
-    <!-- Hamburger -->
-    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu">
-      <span class="block w-6 h-0.5 bg-cream" style="background:var(--cream)"></span>
-      <span class="block w-4 h-0.5 bg-cream" style="background:var(--cream)"></span>
-      <span class="block w-6 h-0.5 bg-cream" style="background:var(--cream)"></span>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobile-menu">
-  <button id="menu-close" style="position:absolute;top:24px;right:28px;color:var(--cream);background:none;border:none;font-size:2rem;cursor:pointer;">&times;</button>
-  <a href="index.html"     class="mobile-nav-link">Home</a>
-  <a href="services.html"  class="mobile-nav-link">Services</a>
-  <a href="interior.html"  class="mobile-nav-link">Interiors</a>
-  <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
-  <a href="corporate.html" class="mobile-nav-link">AMC</a>
-  <a href="about.html"     class="mobile-nav-link">About</a>
-  <a href="locations.html" class="mobile-nav-link">Locations</a>
-  <a href="contact.html"   class="mobile-nav-link">Contact</a>
-</div>
-
-
-<!-- ══════════════════════════════════════
-     HERO — "RAWAS" SECTION
-══════════════════════════════════════ -->
-<section id="hero" aria-label="Hero">
-  <div class="hero-bg"></div>
-  <div class="hero-woodgrain"></div>
-
-  <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
-    <div class="max-w-3xl">
-
-      <!-- Pre-title -->
-      <div id="hero-pretitle" class="flex items-center mb-5 reveal">
-        <span class="hero-tagline-bar"></span>
-        <span class="section-label">Carpenter & Interior Specialists · Maharashtra</span>
+  <!-- ============================================================
+       TOPBAR
+  ============================================================ -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="topbar-item">
+          <span class="icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          Mumbai, Maharashtra
+        </span>
+        <span class="topbar-item">
+          <span class="icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          Mon–Sat: 9 AM – 7 PM
+        </span>
       </div>
-
-      <!-- Main Title -->
-      <h1 id="hero-title" class="hero-title mb-6 reveal">
-        Crafted With<br/>
-        <em>Rawas</em> &amp;<br/>
-        Precision
-      </h1>
-
-      <!-- Subtitle -->
-      <p id="hero-sub" class="hero-subtitle max-w-lg mb-10 reveal">
-        Bespoke carpentry, premium furniture repair, and luxury interior transformations — delivered across Mumbai, Thane, Pune &amp; all of Maharashtra.
-      </p>
-
-      <!-- CTAs -->
-      <div id="hero-ctas" class="flex flex-wrap gap-4 reveal">
-        <a href="https://wa.me/918928757480?text=Hello%2C%20I%20need%20a%20quote%20for%20carpentry%20services"
-           target="_blank" rel="noopener"
-           class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp Us Now
+      <div class="topbar-right">
+        <a href="tel:8928757480" class="topbar-item">
+          <span class="icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          </span>
+          8928757480
         </a>
-        <a href="services.html" class="btn-outline">
-          Our Services
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <a href="mailto:ahmadshaikh2yq@gmail.com" class="topbar-item">
+          <span class="icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          ahmadshaikh2yq@gmail.com
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Floating Badge -->
-  <div class="hero-badge hidden md:flex" id="hero-badge">
-    <span class="hero-badge-num">12+</span>
-    <span class="hero-badge-text">Years of<br/>Craftsmanship</span>
-  </div>
-
-  <!-- Scroll line -->
-  <div class="hero-scroll-line"></div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     MARQUEE STRIP
-══════════════════════════════════════ -->
-<div class="overflow-hidden py-4 border-y" style="border-color:rgba(201,150,58,0.18);background:rgba(10,10,10,0.8);">
-  <div class="marquee-track">
-    <!-- Repeated for seamless loop -->
-    <template id="marquee-items">
-      <span class="marquee-item">Furniture Repair</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Custom Carpentry</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Interior Design</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Modular Kitchen</span><span class="marquee-dot"></span>
-      <span class="marquee-item">AMC Contracts</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Office Interiors</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Mumbai · Thane · Pune</span><span class="marquee-dot"></span>
-      <span class="marquee-item">Pan-India Delivery</span><span class="marquee-dot"></span>
-    </template>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════
-     SERVICE PILLARS
-══════════════════════════════════════ -->
-<section id="services" class="py-24 md:py-32 px-6 md:px-12" aria-label="Service Pillars">
-  <div class="max-w-7xl mx-auto">
-
-    <!-- Header -->
-    <div class="mb-16 reveal" id="sec1-header">
-      <span class="section-label">What We Do</span>
-      <div class="gold-divider"></div>
-      <h2 class="section-title">Four Pillars of <em>Mastery</em></h2>
-      <p class="mt-4 text-sm font-light max-w-xl" style="color:rgba(253,248,243,0.5);line-height:1.8;">
-        Every project we undertake carries our signature blend of traditional craft and modern design sensibility — from a single hinge to a complete interior overhaul.
-      </p>
-    </div>
-
-    <!-- Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style="background:rgba(255,255,255,0.05);">
-
-      <!-- Card 1 -->
-      <div class="service-card reveal" id="pillar-1">
-        <span class="service-number">01</span>
-        <div class="service-icon">
-          <!-- Hammer icon -->
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 12l-8.5 8.5a2.121 2.121 0 01-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="M20.91 11.7a1.5 1.5 0 00-2.11-2.12l-1.09 1.09 2.12 2.12 1.08-1.09z"/>
-            <path d="M7.5 8.5l2-2 1.5 1.5-2 2"/><path d="M10 5.5l2.5-2.5 4.5 4.5-2.5 2.5"/>
-          </svg>
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <div class="logo-wrap" onclick="showPage('home',null)">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3 class="service-title">Furniture Repair</h3>
-        <p class="service-desc">Broken hinges, wobbly joints, chipped veneers — we restore your furniture to factory-perfect condition using premium materials.</p>
-        <a href="services.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
-          Learn More
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="service-card reveal" id="pillar-2">
-        <span class="service-number">02</span>
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
+        <div class="logo-text">
+          <span class="logo-main">The Furniture Fixers</span>
+          <span class="logo-sub">Carpenter &amp; Interior Experts</span>
         </div>
-        <h3 class="service-title">Custom Carpentry</h3>
-        <p class="service-desc">Wardrobes, shelving, modular kitchens — precision-built to your exact dimensions using sustainably sourced hardwoods and plywoods.</p>
-        <a href="services.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
-          Learn More
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
       </div>
-
-      <!-- Card 3 -->
-      <div class="service-card reveal" id="pillar-3">
-        <span class="service-number">03</span>
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Interior Design</h3>
-        <p class="service-desc">End-to-end interior transformations — from concept mood boards to final installation — for homes, offices, and retail spaces.</p>
-        <a href="interior.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
-          Learn More
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+      <div class="nav-links">
+        <a href="#" class="active" onclick="showPage('home',this)">Home</a>
+        <a href="#" onclick="showPage('services',this)">Services</a>
+        <a href="#" onclick="showPage('about',this)">About</a>
+        <a href="#" onclick="showPage('gallery',this)">Gallery</a>
+        <a href="#" onclick="showPage('contact',this)">Contact</a>
+        <a href="#" class="nav-cta" onclick="showPage('contact',this)">Get Quote</a>
       </div>
-
-      <!-- Card 4 -->
-      <div class="service-card reveal" id="pillar-4">
-        <span class="service-number">04</span>
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-          </svg>
-        </div>
-        <h3 class="service-title">AMC / Corporate</h3>
-        <p class="service-desc">Annual Maintenance Contracts for offices and housing societies. Priority service, scheduled visits, and dedicated account management.</p>
-        <a href="corporate.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
-          Learn More
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
       </div>
-
-    </div><!-- end grid -->
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     STATS BAR
-══════════════════════════════════════ -->
-<section class="border-y" style="border-color:rgba(201,150,58,0.15);background:rgba(20,12,4,0.8);" aria-label="Stats">
-  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
-    <div class="stat-item reveal">
-      <div class="stat-num" data-count="1200">0</div>
-      <div class="stat-label">Projects Completed</div>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-count="12">0</div>
-      <div class="stat-label">Years in Business</div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="showPage('home',this);toggleMenu()">Home</a>
+      <a href="#" onclick="showPage('services',this);toggleMenu()">Services</a>
+      <a href="#" onclick="showPage('about',this);toggleMenu()">About</a>
+      <a href="#" onclick="showPage('gallery',this);toggleMenu()">Gallery</a>
+      <a href="#" onclick="showPage('contact',this);toggleMenu()">Contact</a>
     </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-count="98">0</div>
-      <div class="stat-label">% Client Satisfaction</div>
-    </div>
-    <div class="stat-item reveal">
-      <div class="stat-num" data-count="8">0</div>
-      <div class="stat-label">Cities Served</div>
-    </div>
-  </div>
-</section>
+  </nav>
 
+  <!-- ============================================================
+       HOME PAGE
+  ============================================================ -->
+  <div id="page-home" class="page active">
 
-<!-- ══════════════════════════════════════
-     BRAND PROMISE / CTA BAND
-══════════════════════════════════════ -->
-<section class="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden" aria-label="Brand Promise">
-  <!-- Decorative background -->
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(160,105,46,0.12) 0%, transparent 70%);pointer-events:none;"></div>
-
-  <div class="max-w-4xl mx-auto text-center relative z-10">
-    <span class="section-label reveal">Our Promise</span>
-    <div class="gold-divider mx-auto reveal"></div>
-    <h2 class="section-title mb-6 reveal">
-      Wood That <em>Tells a Story.</em><br/>
-      Spaces That <em>Feel Like Home.</em>
-    </h2>
-    <p class="mb-10 font-light text-base leading-relaxed reveal" style="color:rgba(253,248,243,0.55);max-width:600px;margin-left:auto;margin-right:auto;">
-      From a single drawer that won't close, to a full home transformation — The Furniture Fixers brings uncompromising quality and honest craftsmanship to every project, large or small, across Maharashtra.
-    </p>
-    <div class="flex flex-wrap gap-4 justify-center reveal">
-      <a href="https://wa.me/918928757480?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation"
-         target="_blank" rel="noopener"
-         class="btn-primary">
-        Book a Free Consultation
-      </a>
-      <a href="portfolio.html" class="btn-outline">View Our Work</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     WHY CHOOSE US — QUICK GLIMPSE
-══════════════════════════════════════ -->
-<section class="py-20 px-6 md:px-12" style="background:rgba(14,9,3,0.9);" aria-label="Why Choose Us">
-  <div class="max-w-7xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-      <div>
-        <span class="section-label reveal">Why The Furniture Fixers</span>
-        <div class="gold-divider reveal"></div>
-        <h2 class="section-title mb-6 reveal">The <em>Difference</em><br/>You'll Feel</h2>
-
-        <div class="space-y-5">
-          <div class="flex gap-4 items-start reveal">
-            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Same-Day Response</p>
-              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">WhatsApp us and get a confirmed slot within hours, not days.</p>
-            </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-noise"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-frame"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            Trusted Since 2010
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
           </div>
-          <div class="flex gap-4 items-start reveal">
-            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Transparent Pricing</p>
-              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">No hidden charges. Detailed quotes before we start any work.</p>
-            </div>
+          <h1 class="hero-title">
+            Crafting <em>Spaces</em><br/>
+            With Precision &amp;<br/>
+            Passion
+          </h1>
+          <p class="hero-desc">
+            From expert furniture repairs to complete interior transformations — The Furniture Fixers delivers premium carpentry and design services across Mumbai, with craftsmanship that stands the test of time.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-gold" onclick="showPage('contact',null)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Get Free Quote
+            </a>
+            <a href="#" class="btn btn-white" onclick="showPage('services',null)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              Our Services
+            </a>
           </div>
-          <div class="flex gap-4 items-start reveal">
-            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-num" data-count="500">0</div>
+              <div class="stat-label">Projects Completed</div>
             </div>
-            <div>
-              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Certified Craftsmen</p>
-              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">Our team of carpenters are trained, experienced &amp; background-verified.</p>
+            <div class="stat-card">
+              <div class="stat-num" data-count="15">0</div>
+              <div class="stat-label">Years Experience</div>
             </div>
-          </div>
-          <div class="flex gap-4 items-start reveal">
-            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="stat-card">
+              <div class="stat-num" data-count="98">0</div>
+              <div class="stat-label">Customer Satisfaction %</div>
             </div>
-            <div>
-              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Work Warranty</p>
-              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">We back every job with a written service warranty for your peace of mind.</p>
+            <div class="stat-card">
+              <div class="stat-num" data-count="50">0</div>
+              <div class="stat-label">Expert Craftsmen</div>
             </div>
           </div>
         </div>
-
-        <div class="mt-10 reveal">
-          <a href="about.html" class="btn-outline">Full Story →</a>
-        </div>
-      </div>
-
-      <!-- Right: decorative panel -->
-      <div class="relative reveal">
-        <div style="background:var(--charcoal-mid);border:1px solid rgba(201,150,58,0.18);padding:2.5rem;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
-          <blockquote>
-            <p style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:1.5rem;">
-              "They repaired my 20-year-old teak wardrobe like it was brand new. Professional, on-time, and the finish was perfect."
-            </p>
-            <footer>
-              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Priya Desai</p>
-              <p style="font-size:0.75rem;color:rgba(253,248,243,0.4);margin-top:2px;">Homeowner, Thane West</p>
-            </footer>
-          </blockquote>
-          <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.07);">
-            <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,150,58,0.6);margin-bottom:0.5rem;">Serving Maharashtra Since 2012</p>
-            <p style="font-size:0.82rem;font-weight:300;color:rgba(253,248,243,0.4);line-height:1.7;">Mumbai · Thane · Navi Mumbai · Pune · Nashik &amp; beyond</p>
+        <div class="hero-visual">
+          <div class="hero-img-frame">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Luxury Furniture"/>
+            <div class="hero-img-badge">
+              <span>15+</span>Years of Excellence
+            </div>
           </div>
         </div>
       </div>
+      <div class="scroll-hint">
+        <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Scroll
+      </div>
+    </section>
 
+    <!-- FEATURES STRIP -->
+    <div class="features-strip">
+      <div class="features-strip-inner">
+        <div class="feature-item" data-reveal data-reveal-delay="1">
+          <div class="feature-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="feature-text"><strong>Expert Craftsmen</strong><span>Skilled &amp; experienced team</span></div>
+        </div>
+        <div class="feature-item" data-reveal data-reveal-delay="2">
+          <div class="feature-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="feature-text"><strong>Fast Turnaround</strong><span>On-time delivery guaranteed</span></div>
+        </div>
+        <div class="feature-item" data-reveal data-reveal-delay="3">
+          <div class="feature-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="feature-text"><strong>Premium Quality</strong><span>Best materials only</span></div>
+        </div>
+        <div class="feature-item" data-reveal data-reveal-delay="4">
+          <div class="feature-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="feature-text"><strong>Home Service</strong><span>We come to your doorstep</span></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<footer aria-label="Footer">
-  <!-- Top footer -->
-  <div class="px-6 md:px-12 py-16 md:py-20">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-
-      <!-- Brand col -->
-      <div class="md:col-span-2">
-        <a href="index.html" class="footer-logo" style="text-decoration:none;">
-          The <span>Furniture</span> Fixers
-        </a>
-        <p class="mt-4 text-sm font-light leading-relaxed" style="color:rgba(253,248,243,0.4);max-width:320px;">
-          Premium carpentry &amp; interior design specialists serving Mumbai, Thane, Pune, and all of Maharashtra. Quality you can see. Craftsmanship you can feel.
-        </p>
-        <div class="mt-6 flex gap-3">
-          <a href="https://wa.me/918928757480" target="_blank" rel="noopener"
-             style="width:38px;height:38px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);display:flex;align-items:center;justify-content:center;transition:background 0.3s;"
-             onmouseover="this.style.background='rgba(37,211,102,0.22)'"
-             onmouseout="this.style.background='rgba(37,211,102,0.1)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </a>
-          <a href="mailto:ahmadshaikh2yq@gmail.com"
-             style="width:38px;height:38px;background:rgba(201,150,58,0.1);border:1px solid rgba(201,150,58,0.25);display:flex;align-items:center;justify-content:center;transition:background 0.3s;"
-             onmouseover="this.style.background='rgba(201,150,58,0.2)'"
-             onmouseout="this.style.background='rgba(201,150,58,0.1)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <!-- ABOUT TEASER -->
+    <div class="section">
+      <div class="about-teaser">
+        <div class="about-img-grid" data-reveal-left>
+          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=700&q=80" alt="Workshop"/>
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80" alt="Furniture"/>
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80" alt="Interior"/>
+        </div>
+        <div class="about-text" data-reveal-right>
+          <span class="section-sub">Who We Are</span>
+          <h2 class="section-title">Mumbai's Most Trusted <span>Carpenter Experts</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <p>For over 15 years, The Furniture Fixers has been the go-to name for premium carpentry services in Mumbai. From repairing a cherished antique chair to designing a complete modular kitchen — we treat every project with the same passion and precision.</p>
+          <p>Our team of skilled craftsmen combines traditional woodworking techniques with modern design sensibilities to deliver results that exceed expectations every time.</p>
+          <div class="about-tags">
+            <span class="tag">Licensed &amp; Insured</span>
+            <span class="tag">Home Visits Available</span>
+            <span class="tag">All Wood Types</span>
+            <span class="tag">Interior Design</span>
+            <span class="tag">Pan-Mumbai Service</span>
+          </div>
+          <a href="#" class="btn btn-gold" onclick="showPage('about',null)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Read Our Story
           </a>
         </div>
       </div>
+    </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Quick Links</h4>
-        <nav aria-label="Footer navigation">
-          <a href="index.html"     class="footer-link">Home</a>
-          <a href="services.html"  class="footer-link">Our Services</a>
-          <a href="interior.html"  class="footer-link">Interior Design</a>
-          <a href="portfolio.html" class="footer-link">Portfolio</a>
-          <a href="corporate.html" class="footer-link">AMC / Corporate</a>
-          <a href="about.html"     class="footer-link">Why Choose Us</a>
-          <a href="locations.html" class="footer-link">Service Areas</a>
-          <a href="contact.html"   class="footer-link">Contact Us</a>
-        </nav>
+    <!-- SERVICES PREVIEW -->
+    <div style="background: var(--brown-light); padding: 90px 0;">
+      <div style="max-width:1200px; margin:auto; padding:0 24px;">
+        <div class="text-center" data-reveal>
+          <span class="section-sub">What We Do</span>
+          <h2 class="section-title">Our <span>Services</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        </div>
+        <div class="services-grid" style="margin-top:44px;">
+          <div class="service-card" data-reveal data-reveal-delay="1">
+            <img class="service-card-img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80" alt="Furniture Repair"/>
+            <div class="service-card-body">
+              <div class="service-card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="service-card-title">Furniture Repair</div>
+              <div class="service-card-desc">Professional restoration of all furniture types — chairs, tables, wardrobes, sofas and more, returning them to their original glory.</div>
+              <a href="#" class="service-card-link" onclick="showPage('services',null)">Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="service-card" data-reveal data-reveal-delay="2">
+            <img class="service-card-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Modular Kitchen"/>
+            <div class="service-card-body">
+              <div class="service-card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div class="service-card-title">Custom Furniture Making</div>
+              <div class="service-card-desc">Bespoke furniture crafted to your exact specifications — from bed frames and wardrobes to study tables and TV units.</div>
+              <a href="#" class="service-card-link" onclick="showPage('services',null)">Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="service-card" data-reveal data-reveal-delay="3">
+            <img class="service-card-img" src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=500&q=80" alt="Interior Design"/>
+            <div class="service-card-body">
+              <div class="service-card-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+              </div>
+              <div class="service-card-title">Interior Design</div>
+              <div class="service-card-desc">Complete interior design and execution for homes and offices — from concept to completion with stunning results.</div>
+              <a href="#" class="service-card-link" onclick="showPage('services',null)">Learn More
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:40px;" data-reveal>
+          <a href="#" class="btn btn-outline" onclick="showPage('services',null)">View All Services</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY CHOOSE US -->
+    <div class="why-section">
+      <div class="section">
+        <div class="text-center" data-reveal>
+          <span class="section-sub" style="color:var(--gold-light);">Why Choose Us</span>
+          <h2 class="section-title">The Furniture Fixers <span>Difference</span></h2>
+          <div class="divider" style="justify-content:center;">
+            <div class="divider-line" style="background:rgba(201,168,76,0.25); flex:0 0 60px;"></div>
+            <div class="divider-diamond"></div>
+            <div class="divider-line" style="background:rgba(201,168,76,0.25); flex:0 0 60px;"></div>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div class="why-card" data-reveal data-reveal-delay="1">
+            <div class="why-num">01</div>
+            <div class="why-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div class="why-title">Proven Excellence</div>
+            <div class="why-desc">Over 15 years of delivering world-class carpentry and interior design services across Mumbai with zero compromises on quality.</div>
+          </div>
+          <div class="why-card" data-reveal data-reveal-delay="2">
+            <div class="why-num">02</div>
+            <div class="why-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="why-title">Fully Insured</div>
+            <div class="why-desc">All our work is covered with insurance. Your furniture and property are protected from the moment we step in.</div>
+          </div>
+          <div class="why-card" data-reveal data-reveal-delay="3">
+            <div class="why-num">03</div>
+            <div class="why-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="why-title">Transparent Pricing</div>
+            <div class="why-desc">No hidden charges, no surprises. We give you a detailed quote upfront so you can plan your budget with confidence.</div>
+          </div>
+          <div class="why-card" data-reveal data-reveal-delay="4">
+            <div class="why-num">04</div>
+            <div class="why-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div class="why-title">24/7 Support</div>
+            <div class="why-desc">From first inquiry to post-project support, we're always available on call or WhatsApp to assist you at every step.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="section">
+      <div class="text-center" data-reveal>
+        <span class="section-sub">How It Works</span>
+        <h2 class="section-title">Our Simple <span>Process</span></h2>
+        <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      </div>
+      <div class="process-steps">
+        <div class="process-step" data-reveal data-reveal-delay="1">
+          <div class="step-circle">01</div>
+          <div class="step-title">Contact Us</div>
+          <div class="step-desc">Reach out via call, WhatsApp or our contact form to describe your requirement.</div>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="2">
+          <div class="step-circle">02</div>
+          <div class="step-title">Site Visit</div>
+          <div class="step-desc">Our expert visits your home or office to assess the work and provide a free estimate.</div>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="3">
+          <div class="step-circle">03</div>
+          <div class="step-title">We Execute</div>
+          <div class="step-desc">Our skilled craftsmen complete the work with precision, using premium quality materials.</div>
+        </div>
+        <div class="process-step" data-reveal data-reveal-delay="4">
+          <div class="step-circle">04</div>
+          <div class="step-title">You Enjoy</div>
+          <div class="step-desc">Inspect the finished result, pay only when satisfied. We ensure you love the outcome.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div style="background: var(--off-white); padding: 90px 0; border-top: 1px solid var(--border-soft);">
+      <div style="max-width:1200px; margin:auto; padding:0 24px;">
+        <div class="text-center" data-reveal>
+          <span class="section-sub">Client Reviews</span>
+          <h2 class="section-title">What Our <span>Clients Say</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        </div>
+        <div class="testimonials-grid" style="margin-top:44px;">
+          <div class="testimonial-card" data-reveal data-reveal-delay="1">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">Amazing work! They repaired my antique teak dining table that I thought was beyond saving. The finish is absolutely flawless. Highly recommend The Furniture Fixers!</div>
+            <div class="testi-author">
+              <div class="testi-avatar">RK</div>
+              <div><div class="testi-name">Rahul Khanna</div><div class="testi-loc">Bandra West, Mumbai</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card" data-reveal data-reveal-delay="2">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">Got my entire modular kitchen and living room done by them. The quality of work and attention to detail is exceptional. Price was very reasonable too. 10/10!</div>
+            <div class="testi-author">
+              <div class="testi-avatar">PM</div>
+              <div><div class="testi-name">Priya Mehta</div><div class="testi-loc">Andheri East, Mumbai</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card" data-reveal data-reveal-delay="3">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-text">Professional team, clean work, and they finished exactly on time. My office renovation looks stunning. Will definitely hire them again for future projects.</div>
+            <div class="testi-author">
+              <div class="testi-avatar">AS</div>
+              <div><div class="testi-name">Arjun Sharma</div><div class="testi-loc">Dadar, Mumbai</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+      <div class="cta-inner">
+        <div class="cta-text" data-reveal-left>
+          <h2>Ready to Transform Your Space?</h2>
+          <p>Get a free consultation and estimate. Our experts are just a call away — available across all Mumbai locations.</p>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;" data-reveal-right>
+          <a href="tel:8928757480" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Now
+          </a>
+          <a href="https://wa.me/918928757480?text=Hi!%20I%20need%20a%20quote%20from%20The%20Furniture%20Fixers." target="_blank" class="btn btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-home -->
+
+  <!-- ============================================================
+       SERVICES PAGE
+  ============================================================ -->
+  <div id="page-services" class="page">
+    <div class="page-hero">
+      <div class="page-hero-pattern"></div>
+      <div class="breadcrumb">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg> Services</div>
+      <h1>Our <em style="color:var(--gold-light);font-style:italic;">Services</em></h1>
+      <p>Complete carpentry, furniture and interior design solutions for homes &amp; offices across Mumbai</p>
+    </div>
+    <div class="section">
+      <div class="text-center" data-reveal>
+        <span class="section-sub">What We Offer</span>
+        <h2 class="section-title">Premium <span>Carpentry &amp; Design</span> Services</h2>
+        <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+      </div>
+      <div class="services-full-grid" style="margin-top:48px;">
+
+        <div class="svc-card" data-reveal data-reveal-delay="1">
+          <div class="svc-card-header" data-num="01">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="svc-name">Furniture Repair &amp; Restoration</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">Breathe new life into your old or damaged furniture. We repair cracks, broken joints, broken legs, and restore finishes to perfection.</div>
+            <ul class="svc-list">
+              <li>Chair &amp; table joint repair</li>
+              <li>Wardrobe hinge &amp; slider fixing</li>
+              <li>Wood crack filling &amp; sealing</li>
+              <li>Polish &amp; lacquer restoration</li>
+              <li>Antique furniture restoration</li>
+              <li>Termite damage repair</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-card" data-reveal data-reveal-delay="2">
+          <div class="svc-card-header" data-num="02">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="svc-name">Custom Furniture Making</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">Bespoke furniture crafted to your exact dimensions and design preferences — every piece is unique and built to last generations.</div>
+            <ul class="svc-list">
+              <li>Bed frames &amp; headboards</li>
+              <li>Wardrobes &amp; almirahs</li>
+              <li>Study &amp; office tables</li>
+              <li>TV units &amp; wall panels</li>
+              <li>Bookshelf &amp; display units</li>
+              <li>Sofa frames &amp; centre tables</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-card" data-reveal data-reveal-delay="3">
+          <div class="svc-card-header" data-num="03">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2h18v5H3z"/><path d="M3 7h18v15H3z"/><line x1="8" y1="7" x2="8" y2="22"/><line x1="16" y1="7" x2="16" y2="22"/></svg>
+            </div>
+            <div class="svc-name">Modular Kitchen</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">Transform your kitchen with fully modular designs — functional, beautiful and built to suit your cooking style and space requirements.</div>
+            <ul class="svc-list">
+              <li>L-shape, U-shape, Parallel designs</li>
+              <li>Soft-close drawers &amp; shutters</li>
+              <li>Loft &amp; overhead cabinets</li>
+              <li>Chimney &amp; appliance integration</li>
+              <li>Granite &amp; quartz countertops</li>
+              <li>Modular accessories &amp; fittings</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-card" data-reveal data-reveal-delay="1">
+          <div class="svc-card-header" data-num="04">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <div class="svc-name">Interior Design</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">End-to-end interior design services for homes, offices and commercial spaces — from concept to completed, move-in ready spaces.</div>
+            <ul class="svc-list">
+              <li>Full home interiors</li>
+              <li>Office &amp; commercial spaces</li>
+              <li>False ceiling (POP &amp; gypsum)</li>
+              <li>Flooring (wooden, tile, vinyl)</li>
+              <li>Wall paneling &amp; wallpaper</li>
+              <li>Lighting design &amp; installation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-card" data-reveal data-reveal-delay="2">
+          <div class="svc-card-header" data-num="05">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9v11h18V9"/><path d="M21 3H3l3 6h12l3-6z"/><path d="M12 3v6"/></svg>
+            </div>
+            <div class="svc-name">Doors, Windows &amp; Partitions</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">Custom wooden doors, window frames, and glass partitions manufactured and installed for any residential or commercial requirement.</div>
+            <ul class="svc-list">
+              <li>Flush &amp; panel door making</li>
+              <li>Sliding &amp; folding doors</li>
+              <li>Window frame repair &amp; making</li>
+              <li>Glass &amp; wooden partitions</li>
+              <li>Pocket &amp; barn door systems</li>
+              <li>Fire-rated doors supply</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="svc-card" data-reveal data-reveal-delay="3">
+          <div class="svc-card-header" data-num="06">
+            <div class="svc-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 00-2-2H6a2 2 0 00-2 2v3"/><path d="M2 11v5a2 2 0 002 2h16a2 2 0 002-2v-5a2 2 0 00-4 0v1H6v-1a2 2 0 00-4 0z"/><path d="M4 18v2"/><path d="M20 18v2"/><path d="M12 4v9"/></svg>
+            </div>
+            <div class="svc-name">Upholstery &amp; Polishing</div>
+          </div>
+          <div class="svc-card-body">
+            <div class="svc-desc">Complete upholstery re-doing and furniture polishing services — bring back the showroom look to your old sofas, chairs and wood pieces.</div>
+            <ul class="svc-list">
+              <li>Sofa upholstery re-doing</li>
+              <li>Chair &amp; bench padding</li>
+              <li>Headboard upholstery</li>
+              <li>Wood polish (matte, gloss, satin)</li>
+              <li>Veneer &amp; laminate application</li>
+              <li>Duco paint &amp; enamel finish</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Contact -->
-      <div>
-        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Get In Touch</h4>
-        <p class="footer-link">
-          <a href="tel:+918928757480" style="color:inherit;text-decoration:none;">+91 89287 57480</a>
-        </p>
-        <p class="footer-link">
-          <a href="mailto:ahmadshaikh2yq@gmail.com" style="color:inherit;text-decoration:none;">ahmadshaikh2yq@gmail.com</a>
-        </p>
-        <p class="footer-link" style="margin-top:0.75rem;">Mumbai · Thane · Navi Mumbai</p>
-        <p class="footer-link">Pune · Nashik · Maharashtra</p>
-        <a href="https://wa.me/918928757480?text=Hello%2C%20I%20need%20a%20quote"
-           target="_blank" rel="noopener"
-           class="btn-primary mt-6 text-xs py-3 px-5 inline-flex">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat on WhatsApp
+      <!-- PRICING TABLE -->
+      <div style="margin-top:80px;" data-reveal>
+        <div class="text-center">
+          <span class="section-sub">Pricing Guide</span>
+          <h2 class="section-title">Approximate <span>Price Ranges</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <p style="color:var(--text-muted);font-size:0.84rem;margin-bottom:34px;">*Prices are indicative. Final quote given after site visit &amp; assessment.</p>
+        </div>
+        <div class="pricing-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Starting Price</th>
+                <th>Avg. Timeline</th>
+                <th>Includes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Furniture Repair (Basic)</td><td class="price-tag">₹ 500 onwards</td><td>1–2 days</td><td>Labour + basic materials</td></tr>
+              <tr><td>Custom Wardrobe</td><td class="price-tag">₹ 18,000 onwards</td><td>5–7 days</td><td>Design + material + installation</td></tr>
+              <tr><td>Modular Kitchen</td><td class="price-tag">₹ 45,000 onwards</td><td>10–15 days</td><td>Full design + shutters + fittings</td></tr>
+              <tr><td>Interior Design (per sqft)</td><td class="price-tag">₹ 800 – ₹ 2,500</td><td>30–60 days</td><td>Turnkey execution</td></tr>
+              <tr><td>Sofa Upholstery</td><td class="price-tag">₹ 3,500 onwards</td><td>3–5 days</td><td>Fabric + padding + labour</td></tr>
+              <tr><td>Furniture Polishing</td><td class="price-tag">₹ 1,200 onwards</td><td>1–2 days</td><td>Polish + materials</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:52px;" data-reveal>
+        <a href="#" class="btn btn-gold" onclick="showPage('contact',null)">
+          Get Exact Quote
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
+    </div>
+  </div><!-- /page-services -->
 
+  <!-- ============================================================
+       ABOUT PAGE
+  ============================================================ -->
+  <div id="page-about" class="page">
+    <div class="page-hero">
+      <div class="page-hero-pattern"></div>
+      <div class="breadcrumb">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg> About</div>
+      <h1>About <em style="color:var(--gold-light);font-style:italic;">Us</em></h1>
+      <p>15 years of passion, precision and perfection in carpentry and interior design across Mumbai</p>
+    </div>
+
+    <div class="section">
+      <!-- STORY -->
+      <div class="about-teaser" style="margin-bottom:90px;">
+        <div data-reveal-left>
+          <span class="section-sub">Our Story</span>
+          <h2 class="section-title">Built on <span>Craft &amp; Trust</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <p style="color:var(--text-muted);line-height:1.88;margin-bottom:14px;">The Furniture Fixers was founded with a simple mission: to deliver carpentry and furniture services that people in Mumbai could truly trust. What started as a small repair workshop has grown into a full-service carpentry and interior design company serving hundreds of happy homes.</p>
+          <p style="color:var(--text-muted);line-height:1.88;margin-bottom:14px;">Under the leadership of our founder — a master craftsman with over 20 years of experience — our team has built a reputation for quality that no other furniture service in Mumbai can match.</p>
+          <p style="color:var(--text-muted);line-height:1.88;margin-bottom:28px;">Today, we are a team of 50+ skilled carpenters, designers and project managers dedicated to turning your vision into reality.</p>
+          <a href="tel:8928757480" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            Speak to Our Team
+          </a>
+        </div>
+        <div class="about-img-grid" data-reveal-right>
+          <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=700&q=80" alt="Workshop"/>
+          <img src="https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=400&q=80" alt="Craft"/>
+          <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=400&q=80" alt="Interior"/>
+        </div>
+      </div>
+
+      <!-- VALUES -->
+      <div style="margin-bottom:90px;">
+        <div class="text-center" data-reveal>
+          <span class="section-sub">Core Values</span>
+          <h2 class="section-title">What <span>Drives Us</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        </div>
+        <div class="values-grid" style="margin-top:44px;">
+          <div class="value-card" data-reveal data-reveal-delay="1">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="value-title">Craftsmanship First</div>
+            <div class="value-desc">Every joint, every finish, every detail is executed with the highest skill and attention. We never cut corners because your furniture deserves the best.</div>
+          </div>
+          <div class="value-card" data-reveal data-reveal-delay="2">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="value-title">Client Trust</div>
+            <div class="value-desc">We enter your home with respect and leave with your confidence. Transparent pricing, honest advice, and zero pressure — always.</div>
+          </div>
+          <div class="value-card" data-reveal data-reveal-delay="3">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="value-title">Sustainable Materials</div>
+            <div class="value-desc">We source eco-friendly, sustainably harvested wood and use low-VOC finishes wherever possible to protect your family and the planet.</div>
+          </div>
+          <div class="value-card" data-reveal data-reveal-delay="4">
+            <div class="value-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="value-title">On-Time Delivery</div>
+            <div class="value-desc">We know your time is precious. That's why we commit to realistic timelines and stick to them — with daily progress updates if needed.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM -->
+      <div style="margin-bottom:90px;">
+        <div class="text-center" data-reveal>
+          <span class="section-sub">Our Team</span>
+          <h2 class="section-title">Meet the <span>Experts</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+        </div>
+        <div class="team-grid" style="margin-top:44px;">
+          <div class="team-card" data-reveal data-reveal-delay="1">
+            <div class="team-card-img-wrap"><div class="team-avatar">AS</div></div>
+            <div class="team-body">
+              <div class="team-name">Ahmad Shaikh</div>
+              <div class="team-role">Founder &amp; Master Carpenter</div>
+              <div class="team-desc">With 20+ years of hands-on experience, Ahmad leads every major project personally, ensuring the highest quality in every piece we create or restore.</div>
+            </div>
+          </div>
+          <div class="team-card" data-reveal data-reveal-delay="2">
+            <div class="team-card-img-wrap"><div class="team-avatar">RA</div></div>
+            <div class="team-body">
+              <div class="team-name">Raju Ansari</div>
+              <div class="team-role">Head of Interior Design</div>
+              <div class="team-desc">A creative visionary with an eye for detail, Raju translates client briefs into stunning interior concepts that are both beautiful and functional.</div>
+            </div>
+          </div>
+          <div class="team-card" data-reveal data-reveal-delay="3">
+            <div class="team-card-img-wrap"><div class="team-avatar">SK</div></div>
+            <div class="team-body">
+              <div class="team-name">Salim Khan</div>
+              <div class="team-role">Senior Craftsman</div>
+              <div class="team-desc">Salim specialises in custom furniture and restoration, bringing old pieces back to life with exceptional skill and patience.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MILESTONES -->
+      <div class="about-teaser">
+        <div data-reveal-left>
+          <span class="section-sub">Our Journey</span>
+          <h2 class="section-title">Key <span>Milestones</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <div class="milestones">
+            <div class="milestone"><div class="milestone-year">2010</div><div class="milestone-dot"></div><div class="milestone-text"><strong>Company Founded</strong><span>Started as a small furniture repair workshop in Dharavi, Mumbai.</span></div></div>
+            <div class="milestone"><div class="milestone-year">2013</div><div class="milestone-dot"></div><div class="milestone-text"><strong>Expanded to Custom Furniture</strong><span>Began manufacturing custom furniture for residential clients across Mumbai.</span></div></div>
+            <div class="milestone"><div class="milestone-year">2017</div><div class="milestone-dot"></div><div class="milestone-text"><strong>Interior Design Division</strong><span>Launched full-scale interior design services. First 10 home projects completed.</span></div></div>
+            <div class="milestone"><div class="milestone-year">2020</div><div class="milestone-dot"></div><div class="milestone-text"><strong>500+ Projects Milestone</strong><span>Celebrated completing 500 projects with a team of 30+ craftsmen.</span></div></div>
+            <div class="milestone"><div class="milestone-year">2025</div><div class="milestone-dot"></div><div class="milestone-text"><strong>Going Pan-Mumbai</strong><span>Now serving all 24 zones of Greater Mumbai with 50+ team members.</span></div></div>
+          </div>
+        </div>
+        <div data-reveal-right style="display:flex; flex-direction:column; gap:20px;">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Workshop" style="width:100%; height:280px; object-fit:cover; border-radius:var(--radius);"/>
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Kitchen" style="width:100%; height:210px; object-fit:cover; border-radius:var(--radius);"/>
+        </div>
+      </div>
+    </div>
+  </div><!-- /page-about -->
+
+  <!-- ============================================================
+       GALLERY PAGE
+  ============================================================ -->
+  <div id="page-gallery" class="page">
+    <div class="page-hero">
+      <div class="page-hero-pattern"></div>
+      <div class="breadcrumb">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg> Gallery</div>
+      <h1>Our <em style="color:var(--gold-light);font-style:italic;">Work</em></h1>
+      <p>A showcase of our finest projects — furniture, interiors, kitchens and more</p>
+    </div>
+    <div class="section">
+      <div class="gallery-filters" data-reveal>
+        <button class="filter-btn active">All Work</button>
+        <button class="filter-btn">Furniture Repair</button>
+        <button class="filter-btn">Custom Furniture</button>
+        <button class="filter-btn">Kitchens</button>
+        <button class="filter-btn">Interiors</button>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-reveal><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Living Room Sofa</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="1"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Modular Kitchen</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="2"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Bedroom Interior</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="1"><img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Custom Wardrobe</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="2"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">TV Unit &amp; Wall Panel</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="3"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Full Home Interior</span></div></div>
+        <div class="gallery-item" data-reveal><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Luxury Bedroom</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="1"><img src="https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Dining Room</span></div></div>
+        <div class="gallery-item" data-reveal data-reveal-delay="2"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt=""/><div class="gallery-overlay"><span class="gallery-label">Workshop — Custom Build</span></div></div>
+      </div>
+      <div class="text-center" style="margin-top:48px;" data-reveal>
+        <a href="#" class="btn btn-gold" onclick="showPage('contact',null)">
+          Start Your Project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div><!-- /page-gallery -->
+
+  <!-- ============================================================
+       CONTACT PAGE
+  ============================================================ -->
+  <div id="page-contact" class="page">
+    <div class="page-hero">
+      <div class="page-hero-pattern"></div>
+      <div class="breadcrumb">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg> Contact</div>
+      <h1>Get In <em style="color:var(--gold-light);font-style:italic;">Touch</em></h1>
+      <p>Request a free estimate or consultation — we typically respond within 2 hours</p>
+    </div>
+    <div class="section">
+      <div class="contact-grid">
+
+        <!-- INFO COLUMN -->
+        <div data-reveal-left>
+          <span class="section-sub">Contact Details</span>
+          <h2 class="section-title" style="font-size:1.9rem;">Let's <span>Talk</span></h2>
+          <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+          <div class="contact-info-cards">
+            <div class="contact-info-card">
+              <div class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div><div class="ci-title">Phone</div><div class="ci-val"><a href="tel:8928757480">+91 8928757480</a></div></div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              </div>
+              <div><div class="ci-title">WhatsApp</div><div class="ci-val"><a href="https://wa.me/918928757480" target="_blank">+91 8928757480</a></div></div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div><div class="ci-title">Email</div><div class="ci-val"><a href="mailto:ahmadshaikh2yq@gmail.com">ahmadshaikh2yq@gmail.com</a></div></div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div><div class="ci-title">Service Area</div><div class="ci-val">All of Mumbai, Thane &amp; Navi Mumbai</div></div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div><div class="ci-title">Working Hours</div><div class="ci-val">Monday – Saturday: 9:00 AM – 7:00 PM</div></div>
+            </div>
+          </div>
+          <div class="social-links">
+            <div class="social-btn" title="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+            <div class="social-btn" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="social-btn" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </div>
+            <div class="social-btn" title="WhatsApp" onclick="window.open('https://wa.me/918928757480','_blank')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM COLUMN -->
+        <div class="contact-form-wrap" data-reveal-right>
+          <div class="form-title">Request a Free Quote</div>
+          <div class="form-sub">Fill the form below and we'll reach out within 2 hours with an estimate.</div>
+          <div class="form-row">
+            <div class="form-group"><label>Full Name *</label><input type="text" id="f-name" placeholder="Your full name"/></div>
+            <div class="form-group"><label>Phone Number *</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"/></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"/></div>
+          <div class="form-group">
+            <label>Service Required *</label>
+            <select id="f-service">
+              <option value="">-- Select a Service --</option>
+              <option>Furniture Repair &amp; Restoration</option>
+              <option>Custom Furniture Making</option>
+              <option>Modular Kitchen</option>
+              <option>Interior Design</option>
+              <option>Doors, Windows &amp; Partitions</option>
+              <option>Upholstery &amp; Polishing</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Your Location in Mumbai</label><input type="text" id="f-location" placeholder="e.g. Bandra West, Andheri East..."/></div>
+          <div class="form-group"><label>Tell Us About Your Requirement *</label><textarea id="f-message" placeholder="Describe what you need — type of furniture, approximate size, any specific requirements..."></textarea></div>
+          <button class="btn btn-gold" style="width:100%; justify-content:center; font-size:0.8rem;" onclick="sendWhatsApp()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Send via WhatsApp
+          </button>
+          <p style="text-align:center; margin-top:14px; font-size:0.73rem; color:var(--text-muted);">
+            Or call us directly at <a href="tel:8928757480" style="color:var(--gold-dark); font-weight:700;">8928757480</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="map-wrap" style="margin-top:64px;" data-reveal>
+        <div class="map-header">
+          <span class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span>Service Area — Mumbai, Thane &amp; Navi Mumbai</span>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995!3d19.08219865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1714000000000"
+          width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div><!-- /page-contact -->
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-wrap">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-main" style="color:var(--gold-light);">The Furniture Fixers</span>
+            <span class="logo-sub">Carpenter &amp; Interior Experts</span>
+          </div>
+        </div>
+        <p>Mumbai's most trusted carpentry, furniture repair and interior design service — crafted with passion, delivered with precision since 2010.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home',null)">Home</a></li>
+          <li><a href="#" onclick="showPage('services',null)">Services</a></li>
+          <li><a href="#" onclick="showPage('about',null)">About Us</a></li>
+          <li><a href="#" onclick="showPage('gallery',null)">Gallery</a></li>
+          <li><a href="#" onclick="showPage('contact',null)">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('services',null)">Furniture Repair</a></li>
+          <li><a href="#" onclick="showPage('services',null)">Custom Furniture</a></li>
+          <li><a href="#" onclick="showPage('services',null)">Modular Kitchen</a></li>
+          <li><a href="#" onclick="showPage('services',null)">Interior Design</a></li>
+          <li><a href="#" onclick="showPage('services',null)">Upholstery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>
+            <a href="tel:8928757480">
+              <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></span>
+              8928757480
+            </a>
+          </li>
+          <li>
+            <a href="mailto:ahmadshaikh2yq@gmail.com">
+              <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+              ahmadshaikh2yq@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              Mumbai, Maharashtra
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+              Mon–Sat: 9AM–7PM
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Furniture Fixers. All rights reserved.</p>
+      <div class="footer-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        Crafted with Pride in Mumbai
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING BUTTONS
+  ============================================================ -->
+  <div class="float-buttons">
+    <div class="float-btn-wrap">
+      <span class="float-label">WhatsApp Us</span>
+      <a class="float-btn float-wa" href="https://wa.me/918928757480?text=Hi!%20I%20need%20furniture%20services%20from%20The%20Furniture%20Fixers." target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </a>
+    </div>
+    <div class="float-btn-wrap">
+      <span class="float-label">Call Us</span>
+      <a class="float-btn float-call" href="tel:8928757480">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      </a>
     </div>
   </div>
 
-  <!-- Bottom bar -->
-  <div class="px-6 md:px-12 py-5 border-t" style="border-color:rgba(201,150,58,0.12);">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-      <p style="font-size:0.75rem;color:rgba(253,248,243,0.3);">
-        &copy; 2024 The Furniture Fixers. All rights reserved. Maharashtra, India.
-      </p>
-      <p style="font-size:0.72rem;color:rgba(253,248,243,0.2);">
-        Carpenter Mumbai · Interior Design Thane · Furniture Repair Pune
-      </p>
-    </div>
-  </div>
-</footer>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ----- PAGE ROUTING -----
+    function showPage(id, clickedEl) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + id).classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      if (clickedEl) clickedEl.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Re-trigger reveals on new page
+      setTimeout(initReveal, 100);
+    }
 
+    // ----- HAMBURGER -----
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
 
-<!-- ══════════════════════════════════════
-     WHATSAPP FLOAT BUTTON
-══════════════════════════════════════ -->
-<a href="https://wa.me/918928757480?text=Hello%20The%20Furniture%20Fixers%2C%20I%20need%20your%20services"
-   target="_blank" rel="noopener"
-   class="whatsapp-float"
-   aria-label="Chat on WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+    // ----- NAV SCROLL SHADOW -----
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
 
+    // ----- GALLERY FILTERS -----
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
 
-<!-- ══════════════════════════════════════
-     SCRIPTS
-══════════════════════════════════════ -->
-<script>
-  // ─── Marquee fill ───
-  (function() {
-    const track = document.querySelector('.marquee-track');
-    const tmpl  = document.getElementById('marquee-items').content;
-    // Clone twice for seamless loop
-    for (let i = 0; i < 2; i++) track.appendChild(document.importNode(tmpl, true));
-  })();
-
-  // ─── Navbar scroll ───
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // ─── Mobile menu ───
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-  document.getElementById('menu-close').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.remove('open');
-    document.body.style.overflow = '';
-  });
-
-  // ─── GSAP Animations ───
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Hero entrance
-  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  heroTl
-    .fromTo('#hero-pretitle', { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.8, delay:0.3 })
-    .fromTo('#hero-title',    { opacity:0, y:40 },  { opacity:1, y:0, duration:1.0 }, '-=0.4')
-    .fromTo('#hero-sub',      { opacity:0, y:20 },  { opacity:1, y:0, duration:0.7 }, '-=0.5')
-    .fromTo('#hero-ctas',     { opacity:0, y:20 },  { opacity:1, y:0, duration:0.6 }, '-=0.4')
-    .fromTo('#hero-badge',    { opacity:0, scale:0.7 }, { opacity:1, scale:1, duration:0.6, ease:'back.out(1.5)' }, '-=0.3');
-
-  // Floating badge pulse
-  gsap.to('#hero-badge', {
-    y: -10,
-    duration: 2.5,
-    repeat: -1,
-    yoyo: true,
-    ease: 'sine.inOut'
-  });
-
-  // ScrollTrigger reveals
-  gsap.utils.toArray('.reveal').forEach((el, i) => {
-    if (el.id && el.id.startsWith('hero')) return; // already animated
-    gsap.fromTo(el,
-      { opacity: 0, y: 36 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.75,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        },
-        delay: (i % 4) * 0.08
-      }
-    );
-  });
-
-  // Counter animation
-  gsap.utils.toArray('[data-count]').forEach(el => {
-    const target = parseInt(el.dataset.count);
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      onEnter: () => {
-        gsap.to({ val: 0 }, {
-          val: target,
-          duration: 2,
-          ease: 'power2.out',
-          onUpdate: function() {
-            el.textContent = Math.round(this.targets()[0].val) + (target === 98 ? '%' : '+');
+    // ----- SCROLL REVEAL -----
+    function initReveal() {
+      const els = document.querySelectorAll(
+        '.page.active [data-reveal], .page.active [data-reveal-left], .page.active [data-reveal-right]'
+      );
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
           }
         });
-      }
-    });
-  });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  // Service card hover stagger on scroll
-  gsap.from(['.service-card'], {
-    opacity: 0,
-    y: 50,
-    stagger: 0.12,
-    duration: 0.8,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '#services',
-      start: 'top 70%'
+      els.forEach(el => {
+        if (!el.classList.contains('revealed')) observer.observe(el);
+      });
     }
-  });
-</script>
+    document.addEventListener('DOMContentLoaded', () => setTimeout(initReveal, 200));
+    window.addEventListener('scroll', initReveal, { passive: true });
+
+    // ----- ANIMATED COUNTERS -----
+    function animateCounters() {
+      document.querySelectorAll('.stat-num[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        const suffix = el.dataset.count === '98' ? '%' : '+';
+        let current = 0;
+        const step = Math.ceil(target / 50);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = current + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 28);
+      });
+    }
+    // Start counters when hero is visible
+    setTimeout(animateCounters, 800);
+
+    // ----- WHATSAPP FORM SUBMIT -----
+    function sendWhatsApp() {
+      const name    = document.getElementById('f-name').value.trim();
+      const phone   = document.getElementById('f-phone').value.trim();
+      const email   = document.getElementById('f-email').value.trim();
+      const service = document.getElementById('f-service').value;
+      const loc     = document.getElementById('f-location').value.trim();
+      const msg     = document.getElementById('f-message').value.trim();
+
+      if (!name || !phone || !service || !msg) {
+        alert('Please fill in all required fields (Name, Phone, Service, Message).');
+        return;
+      }
+
+      const text = `Hello! I'm contacting from *The Furniture Fixers* website.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email || 'Not provided'}\n*Service Required:* ${service}\n*Location:* ${loc || 'Not specified'}\n\n*Requirement:*\n${msg}\n\nPlease get back to me with a quote. Thank you!`;
+      window.open('https://wa.me/918928757480?text=' + encodeURIComponent(text), '_blank');
+    }
+  </script>
 
 </body>
 </html>
