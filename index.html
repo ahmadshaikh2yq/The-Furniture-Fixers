@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>The Furniture Fixers | Carpenter & Interior Specialists in Maharashtra</title>
+  <meta name="description" content="Premium carpentry, furniture repair, and interior design services in Mumbai, Thane, Pune and across Maharashtra. Expert craftsmen, AMC contracts, and bespoke interiors." />
+  <meta name="keywords" content="carpenter Mumbai, furniture repair Thane, interior design Pune, carpenter Maharashtra, furniture fixers, wood work Mumbai, AMC carpenter, modular kitchen Maharashtra" />
+  <meta name="author" content="The Furniture Fixers" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.thefurniturefixers.in/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Furniture Fixers | Carpenter & Interior Specialists" />
+  <meta property="og:description" content="Premium carpentry and interior design across Maharashtra. Trusted by homes and corporates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thefurniturefixers.in/" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Furniture Fixers",
+    "description": "Carpenter and Interior Specialists in Maharashtra",
+    "telephone": "+918928757480",
+    "email": "ahmadshaikh2yq@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "areaServed": ["Mumbai", "Thane", "Pune", "Navi Mumbai", "Maharashtra"]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wood: {
+              50:  '#fdf8f3',
+              100: '#f5e9d9',
+              200: '#e8ccaa',
+              300: '#d4a76a',
+              400: '#c4894a',
+              500: '#a0692e',
+              600: '#7d5124',
+              700: '#5c3a18',
+              800: '#3d260f',
+              900: '#231508',
+            },
+            charcoal: {
+              50:  '#f4f4f4',
+              100: '#e0e0e0',
+              200: '#b8b8b8',
+              300: '#888888',
+              400: '#5c5c5c',
+              500: '#3a3a3a',
+              600: '#2e2e2e',
+              700: '#222222',
+              800: '#181818',
+              900: '#0f0f0f',
+            },
+            gold: '#c9963a',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['Barlow', 'sans-serif'],
+            condensed: ['"Barlow Condensed"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --wood-dark: #3d260f;
+      --wood-mid:  #a0692e;
+      --wood-light:#d4a76a;
+      --charcoal:  #1a1a1a;
+      --charcoal-mid: #2e2e2e;
+      --gold: #c9963a;
+      --cream: #fdf8f3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: var(--charcoal);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ─── Grain overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
+
+    /* ─── Nav ─── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(26,26,26,0.97);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.6);
+      border-bottom: 1px solid rgba(201,150,58,0.2);
+    }
+    .nav-link {
+      position: relative;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: rgba(253,248,243,0.75);
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ─── Hero ─── */
+    #hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(160,105,46,0.18) 0%, transparent 65%),
+        linear-gradient(160deg, #0f0f0f 0%, #1a1008 40%, #0f0f0f 100%);
+    }
+
+    /* Wood grain SVG lines */
+    .hero-woodgrain {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        172deg,
+        transparent 0px,
+        transparent 28px,
+        rgba(160,105,46,0.04) 28px,
+        rgba(160,105,46,0.04) 29px
+      );
+    }
+
+    .hero-tagline-bar {
+      display: inline-block;
+      width: 48px; height: 2px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(253,248,243,0.65);
+      letter-spacing: 0.03em;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: var(--wood-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      border: 1px solid rgba(253,248,243,0.35);
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Floating badge */
+    .hero-badge {
+      position: absolute;
+      right: 8vw;
+      bottom: 10vh;
+      width: 130px; height: 130px;
+      border: 1px solid rgba(201,150,58,0.4);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(26,26,26,0.7);
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-badge-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(253,248,243,0.6);
+      margin-top: 4px;
+    }
+
+    /* Hero scroll line */
+    .hero-scroll-line {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px; height: 80px;
+      background: linear-gradient(to bottom, rgba(201,150,58,0.6), transparent);
+    }
+
+    /* ─── Section headings ─── */
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--cream);
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ─── Service pillars ─── */
+    .service-card {
+      position: relative;
+      background: var(--charcoal-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 2rem 2rem;
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(201,150,58,0.3);
+      transform: translateY(-6px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(201,150,58,0.12);
+      border: 1px solid rgba(201,150,58,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-number {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(201,150,58,0.07);
+      line-height: 1;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(253,248,243,0.55);
+      line-height: 1.75;
+    }
+
+    /* ─── Stats bar ─── */
+    .stat-item {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,248,243,0.45);
+      margin-top: 6px;
+    }
+
+    /* ─── WhatsApp float ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(201,150,58,0.18);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--cream);
+    }
+    .footer-logo span { color: var(--gold); }
+
+    .footer-link {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(253,248,243,0.45);
+      text-decoration: none;
+      transition: color 0.3s;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .footer-link:hover { color: var(--gold); }
+
+    /* ─── Divider gold ─── */
+    .gold-divider {
+      width: 64px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 1rem 0 1.5rem;
+    }
+
+    /* ─── Mobile menu ─── */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.98);
+      z-index: 400;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    #mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-nav-link:hover { color: var(--gold); }
+
+    /* ─── Marquee ─── */
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,150,58,0.55);
+    }
+    .marquee-dot {
+      display: inline-block;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin: 0 1rem;
+      opacity: 0.4;
+    }
+
+    /* Reveal classes */
+    .reveal { opacity: 0; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav id="navbar" class="px-6 md:px-12 py-5">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="index.html" class="footer-logo text-xl" style="font-family:'Playfair Display',serif;font-weight:900;color:var(--cream);text-decoration:none;">
+      The <span>Furniture</span> Fixers
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="interior.html"  class="nav-link">Interiors</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="corporate.html" class="nav-link">AMC</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="locations.html" class="nav-link">Locations</a>
+      <a href="contact.html"   class="nav-link">Contact</a>
+      <a href="https://wa.me/918928757480?text=Hi%2C%20I%20need%20carpentry%20services"
+         target="_blank" rel="noopener"
+         class="btn-primary text-xs py-2.5 px-5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get Quote
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu">
+      <span class="block w-6 h-0.5 bg-cream" style="background:var(--cream)"></span>
+      <span class="block w-4 h-0.5 bg-cream" style="background:var(--cream)"></span>
+      <span class="block w-6 h-0.5 bg-cream" style="background:var(--cream)"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <button id="menu-close" style="position:absolute;top:24px;right:28px;color:var(--cream);background:none;border:none;font-size:2rem;cursor:pointer;">&times;</button>
+  <a href="index.html"     class="mobile-nav-link">Home</a>
+  <a href="services.html"  class="mobile-nav-link">Services</a>
+  <a href="interior.html"  class="mobile-nav-link">Interiors</a>
+  <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+  <a href="corporate.html" class="mobile-nav-link">AMC</a>
+  <a href="about.html"     class="mobile-nav-link">About</a>
+  <a href="locations.html" class="mobile-nav-link">Locations</a>
+  <a href="contact.html"   class="mobile-nav-link">Contact</a>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HERO — "RAWAS" SECTION
+══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-woodgrain"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+    <div class="max-w-3xl">
+
+      <!-- Pre-title -->
+      <div id="hero-pretitle" class="flex items-center mb-5 reveal">
+        <span class="hero-tagline-bar"></span>
+        <span class="section-label">Carpenter & Interior Specialists · Maharashtra</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 id="hero-title" class="hero-title mb-6 reveal">
+        Crafted With<br/>
+        <em>Rawas</em> &amp;<br/>
+        Precision
+      </h1>
+
+      <!-- Subtitle -->
+      <p id="hero-sub" class="hero-subtitle max-w-lg mb-10 reveal">
+        Bespoke carpentry, premium furniture repair, and luxury interior transformations — delivered across Mumbai, Thane, Pune &amp; all of Maharashtra.
+      </p>
+
+      <!-- CTAs -->
+      <div id="hero-ctas" class="flex flex-wrap gap-4 reveal">
+        <a href="https://wa.me/918928757480?text=Hello%2C%20I%20need%20a%20quote%20for%20carpentry%20services"
+           target="_blank" rel="noopener"
+           class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us Now
+        </a>
+        <a href="services.html" class="btn-outline">
+          Our Services
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Badge -->
+  <div class="hero-badge hidden md:flex" id="hero-badge">
+    <span class="hero-badge-num">12+</span>
+    <span class="hero-badge-text">Years of<br/>Craftsmanship</span>
+  </div>
+
+  <!-- Scroll line -->
+  <div class="hero-scroll-line"></div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     MARQUEE STRIP
+══════════════════════════════════════ -->
+<div class="overflow-hidden py-4 border-y" style="border-color:rgba(201,150,58,0.18);background:rgba(10,10,10,0.8);">
+  <div class="marquee-track">
+    <!-- Repeated for seamless loop -->
+    <template id="marquee-items">
+      <span class="marquee-item">Furniture Repair</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Custom Carpentry</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Interior Design</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Modular Kitchen</span><span class="marquee-dot"></span>
+      <span class="marquee-item">AMC Contracts</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Office Interiors</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Mumbai · Thane · Pune</span><span class="marquee-dot"></span>
+      <span class="marquee-item">Pan-India Delivery</span><span class="marquee-dot"></span>
+    </template>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SERVICE PILLARS
+══════════════════════════════════════ -->
+<section id="services" class="py-24 md:py-32 px-6 md:px-12" aria-label="Service Pillars">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-16 reveal" id="sec1-header">
+      <span class="section-label">What We Do</span>
+      <div class="gold-divider"></div>
+      <h2 class="section-title">Four Pillars of <em>Mastery</em></h2>
+      <p class="mt-4 text-sm font-light max-w-xl" style="color:rgba(253,248,243,0.5);line-height:1.8;">
+        Every project we undertake carries our signature blend of traditional craft and modern design sensibility — from a single hinge to a complete interior overhaul.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style="background:rgba(255,255,255,0.05);">
+
+      <!-- Card 1 -->
+      <div class="service-card reveal" id="pillar-1">
+        <span class="service-number">01</span>
+        <div class="service-icon">
+          <!-- Hammer icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 12l-8.5 8.5a2.121 2.121 0 01-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="M20.91 11.7a1.5 1.5 0 00-2.11-2.12l-1.09 1.09 2.12 2.12 1.08-1.09z"/>
+            <path d="M7.5 8.5l2-2 1.5 1.5-2 2"/><path d="M10 5.5l2.5-2.5 4.5 4.5-2.5 2.5"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Furniture Repair</h3>
+        <p class="service-desc">Broken hinges, wobbly joints, chipped veneers — we restore your furniture to factory-perfect condition using premium materials.</p>
+        <a href="services.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
+          Learn More
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card reveal" id="pillar-2">
+        <span class="service-number">02</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Custom Carpentry</h3>
+        <p class="service-desc">Wardrobes, shelving, modular kitchens — precision-built to your exact dimensions using sustainably sourced hardwoods and plywoods.</p>
+        <a href="services.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
+          Learn More
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card reveal" id="pillar-3">
+        <span class="service-number">03</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Interior Design</h3>
+        <p class="service-desc">End-to-end interior transformations — from concept mood boards to final installation — for homes, offices, and retail spaces.</p>
+        <a href="interior.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
+          Learn More
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card reveal" id="pillar-4">
+        <span class="service-number">04</span>
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3 class="service-title">AMC / Corporate</h3>
+        <p class="service-desc">Annual Maintenance Contracts for offices and housing societies. Priority service, scheduled visits, and dedicated account management.</p>
+        <a href="corporate.html" class="mt-5 inline-flex items-center gap-2 text-xs font-condensed font-semibold tracking-widest uppercase" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;">
+          Learn More
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div><!-- end grid -->
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════ -->
+<section class="border-y" style="border-color:rgba(201,150,58,0.15);background:rgba(20,12,4,0.8);" aria-label="Stats">
+  <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+    <div class="stat-item reveal">
+      <div class="stat-num" data-count="1200">0</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-count="12">0</div>
+      <div class="stat-label">Years in Business</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-count="98">0</div>
+      <div class="stat-label">% Client Satisfaction</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num" data-count="8">0</div>
+      <div class="stat-label">Cities Served</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BRAND PROMISE / CTA BAND
+══════════════════════════════════════ -->
+<section class="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden" aria-label="Brand Promise">
+  <!-- Decorative background -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(160,105,46,0.12) 0%, transparent 70%);pointer-events:none;"></div>
+
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <span class="section-label reveal">Our Promise</span>
+    <div class="gold-divider mx-auto reveal"></div>
+    <h2 class="section-title mb-6 reveal">
+      Wood That <em>Tells a Story.</em><br/>
+      Spaces That <em>Feel Like Home.</em>
+    </h2>
+    <p class="mb-10 font-light text-base leading-relaxed reveal" style="color:rgba(253,248,243,0.55);max-width:600px;margin-left:auto;margin-right:auto;">
+      From a single drawer that won't close, to a full home transformation — The Furniture Fixers brings uncompromising quality and honest craftsmanship to every project, large or small, across Maharashtra.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center reveal">
+      <a href="https://wa.me/918928757480?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation"
+         target="_blank" rel="noopener"
+         class="btn-primary">
+        Book a Free Consultation
+      </a>
+      <a href="portfolio.html" class="btn-outline">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     WHY CHOOSE US — QUICK GLIMPSE
+══════════════════════════════════════ -->
+<section class="py-20 px-6 md:px-12" style="background:rgba(14,9,3,0.9);" aria-label="Why Choose Us">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <span class="section-label reveal">Why The Furniture Fixers</span>
+        <div class="gold-divider reveal"></div>
+        <h2 class="section-title mb-6 reveal">The <em>Difference</em><br/>You'll Feel</h2>
+
+        <div class="space-y-5">
+          <div class="flex gap-4 items-start reveal">
+            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Same-Day Response</p>
+              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">WhatsApp us and get a confirmed slot within hours, not days.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start reveal">
+            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Transparent Pricing</p>
+              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">No hidden charges. Detailed quotes before we start any work.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start reveal">
+            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Certified Craftsmen</p>
+              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">Our team of carpenters are trained, experienced &amp; background-verified.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start reveal">
+            <div style="min-width:36px;height:36px;background:rgba(201,150,58,0.12);border:1px solid rgba(201,150,58,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sm mb-1" style="color:var(--cream)">Work Warranty</p>
+              <p class="text-xs font-light leading-relaxed" style="color:rgba(253,248,243,0.45)">We back every job with a written service warranty for your peace of mind.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 reveal">
+          <a href="about.html" class="btn-outline">Full Story →</a>
+        </div>
+      </div>
+
+      <!-- Right: decorative panel -->
+      <div class="relative reveal">
+        <div style="background:var(--charcoal-mid);border:1px solid rgba(201,150,58,0.18);padding:2.5rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);"></div>
+          <blockquote>
+            <p style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--cream);line-height:1.6;margin-bottom:1.5rem;">
+              "They repaired my 20-year-old teak wardrobe like it was brand new. Professional, on-time, and the finish was perfect."
+            </p>
+            <footer>
+              <p style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Priya Desai</p>
+              <p style="font-size:0.75rem;color:rgba(253,248,243,0.4);margin-top:2px;">Homeowner, Thane West</p>
+            </footer>
+          </blockquote>
+          <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.07);">
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,150,58,0.6);margin-bottom:0.5rem;">Serving Maharashtra Since 2012</p>
+            <p style="font-size:0.82rem;font-weight:300;color:rgba(253,248,243,0.4);line-height:1.7;">Mumbai · Thane · Navi Mumbai · Pune · Nashik &amp; beyond</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer aria-label="Footer">
+  <!-- Top footer -->
+  <div class="px-6 md:px-12 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+
+      <!-- Brand col -->
+      <div class="md:col-span-2">
+        <a href="index.html" class="footer-logo" style="text-decoration:none;">
+          The <span>Furniture</span> Fixers
+        </a>
+        <p class="mt-4 text-sm font-light leading-relaxed" style="color:rgba(253,248,243,0.4);max-width:320px;">
+          Premium carpentry &amp; interior design specialists serving Mumbai, Thane, Pune, and all of Maharashtra. Quality you can see. Craftsmanship you can feel.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://wa.me/918928757480" target="_blank" rel="noopener"
+             style="width:38px;height:38px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.25);display:flex;align-items:center;justify-content:center;transition:background 0.3s;"
+             onmouseover="this.style.background='rgba(37,211,102,0.22)'"
+             onmouseout="this.style.background='rgba(37,211,102,0.1)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="mailto:ahmadshaikh2yq@gmail.com"
+             style="width:38px;height:38px;background:rgba(201,150,58,0.1);border:1px solid rgba(201,150,58,0.25);display:flex;align-items:center;justify-content:center;transition:background 0.3s;"
+             onmouseover="this.style.background='rgba(201,150,58,0.2)'"
+             onmouseout="this.style.background='rgba(201,150,58,0.1)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9963a" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Quick Links</h4>
+        <nav aria-label="Footer navigation">
+          <a href="index.html"     class="footer-link">Home</a>
+          <a href="services.html"  class="footer-link">Our Services</a>
+          <a href="interior.html"  class="footer-link">Interior Design</a>
+          <a href="portfolio.html" class="footer-link">Portfolio</a>
+          <a href="corporate.html" class="footer-link">AMC / Corporate</a>
+          <a href="about.html"     class="footer-link">Why Choose Us</a>
+          <a href="locations.html" class="footer-link">Service Areas</a>
+          <a href="contact.html"   class="footer-link">Contact Us</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Get In Touch</h4>
+        <p class="footer-link">
+          <a href="tel:+918928757480" style="color:inherit;text-decoration:none;">+91 89287 57480</a>
+        </p>
+        <p class="footer-link">
+          <a href="mailto:ahmadshaikh2yq@gmail.com" style="color:inherit;text-decoration:none;">ahmadshaikh2yq@gmail.com</a>
+        </p>
+        <p class="footer-link" style="margin-top:0.75rem;">Mumbai · Thane · Navi Mumbai</p>
+        <p class="footer-link">Pune · Nashik · Maharashtra</p>
+        <a href="https://wa.me/918928757480?text=Hello%2C%20I%20need%20a%20quote"
+           target="_blank" rel="noopener"
+           class="btn-primary mt-6 text-xs py-3 px-5 inline-flex">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="px-6 md:px-12 py-5 border-t" style="border-color:rgba(201,150,58,0.12);">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+      <p style="font-size:0.75rem;color:rgba(253,248,243,0.3);">
+        &copy; 2024 The Furniture Fixers. All rights reserved. Maharashtra, India.
+      </p>
+      <p style="font-size:0.72rem;color:rgba(253,248,243,0.2);">
+        Carpenter Mumbai · Interior Design Thane · Furniture Repair Pune
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     WHATSAPP FLOAT BUTTON
+══════════════════════════════════════ -->
+<a href="https://wa.me/918928757480?text=Hello%20The%20Furniture%20Fixers%2C%20I%20need%20your%20services"
+   target="_blank" rel="noopener"
+   class="whatsapp-float"
+   aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- ══════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════ -->
+<script>
+  // ─── Marquee fill ───
+  (function() {
+    const track = document.querySelector('.marquee-track');
+    const tmpl  = document.getElementById('marquee-items').content;
+    // Clone twice for seamless loop
+    for (let i = 0; i < 2; i++) track.appendChild(document.importNode(tmpl, true));
+  })();
+
+  // ─── Navbar scroll ───
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ─── Mobile menu ───
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('menu-close').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  // ─── GSAP Animations ───
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero entrance
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  heroTl
+    .fromTo('#hero-pretitle', { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.8, delay:0.3 })
+    .fromTo('#hero-title',    { opacity:0, y:40 },  { opacity:1, y:0, duration:1.0 }, '-=0.4')
+    .fromTo('#hero-sub',      { opacity:0, y:20 },  { opacity:1, y:0, duration:0.7 }, '-=0.5')
+    .fromTo('#hero-ctas',     { opacity:0, y:20 },  { opacity:1, y:0, duration:0.6 }, '-=0.4')
+    .fromTo('#hero-badge',    { opacity:0, scale:0.7 }, { opacity:1, scale:1, duration:0.6, ease:'back.out(1.5)' }, '-=0.3');
+
+  // Floating badge pulse
+  gsap.to('#hero-badge', {
+    y: -10,
+    duration: 2.5,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut'
+  });
+
+  // ScrollTrigger reveals
+  gsap.utils.toArray('.reveal').forEach((el, i) => {
+    if (el.id && el.id.startsWith('hero')) return; // already animated
+    gsap.fromTo(el,
+      { opacity: 0, y: 36 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.75,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        },
+        delay: (i % 4) * 0.08
+      }
+    );
+  });
+
+  // Counter animation
+  gsap.utils.toArray('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            el.textContent = Math.round(this.targets()[0].val) + (target === 98 ? '%' : '+');
+          }
+        });
+      }
+    });
+  });
+
+  // Service card hover stagger on scroll
+  gsap.from(['.service-card'], {
+    opacity: 0,
+    y: 50,
+    stagger: 0.12,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#services',
+      start: 'top 70%'
+    }
+  });
+</script>
+
+</body>
+</html>
